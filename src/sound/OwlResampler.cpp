@@ -23,6 +23,7 @@
 #include "OwlResampler.h"
 #include "DSPUtility.h"
 #include "../cputest/cputest.h"
+#include <emulibc.h>
 
 #if defined(HAVE_ALTIVEC_INTRINSICS) && defined(HAVE_ALTIVEC_H)
  #include <altivec.h>
@@ -44,7 +45,9 @@ OwlBuffer::OwlBuffer()
  assert(sizeof(I32_F_Pudding) == 4);
  assert(sizeof(float) == 4);
 
- memset(HRBuf, 0, sizeof(HRBuf));
+ size_t bufsiz = sizeof(HRBuf[0]) * (HRBUF_LEFTOVER_PADDING + 65536 + HRBUF_OVERFLOW_PADDING);
+ HRBuf = (I32_F_Pudding*)alloc_invisible(bufsiz);
+ memset(HRBuf, 0, bufsiz);
 
  accum = 0;
  filter_state[0] = 0;
@@ -755,12 +758,13 @@ OwlResampler::OwlResampler(double input_rate, double output_rate, double rate_er
 
  assert(NumCoeffs <= OwlBuffer::HRBUF_LEFTOVER_PADDING);
 
- CoeffsBuffer.resize((256 / sizeof(float)) + NumCoeffs * NumPhases);
+ auto CoeffsBufferSize = 256 + NumCoeffs * NumPhases * sizeof(float);
+ auto CoeffsBuffer = (float*)alloc_invisible(CoeffsBufferSize);
 
  for(unsigned int i = 0; i < NumPhases; i++)
   PInfos[i].Coeffs = (float *)(((uintptr_t)&CoeffsBuffer[0] + 0xFF) &~ 0xFF) + (i * NumCoeffs);
 
- MDFN_printf("Impulse response table memory usage: %zu bytes\n", CoeffsBuffer.size() * sizeof(float));
+ MDFN_printf("Impulse response table memory usage: %zu bytes\n", CoeffsBufferSize);
 
  FilterBuf.reset(new double[NumCoeffs * NumPhases]);
  DSPUtility::generate_kaiser_sinc_lp(&FilterBuf[0], NumCoeffs * NumPhases, cutoff / NumPhases / 2.0, k_beta);

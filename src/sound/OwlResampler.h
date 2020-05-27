@@ -49,7 +49,7 @@ class OwlBuffer
 
  private:
 
- I32_F_Pudding HRBuf[HRBUF_LEFTOVER_PADDING + 65536 + HRBUF_OVERFLOW_PADDING];
+ I32_F_Pudding* HRBuf; //[HRBUF_LEFTOVER_PADDING + 65536 + HRBUF_OVERFLOW_PADDING];
  int32 accum;
  int64 filter_state[2];
 
@@ -156,7 +156,7 @@ class OwlResampler
 	};
 
 	std::vector<PhaseInfo> PInfos;
-	std::vector<float> CoeffsBuffer;
+	// std::vector<float> CoeffsBuffer;
 	std::vector<int32> IntermediateBuffer; //int32 boobuf[8192];
 
 	template<unsigned TA_SIMD_Type>
