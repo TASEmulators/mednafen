@@ -21,6 +21,7 @@
 #include "sound.h"
 #include "flash.h"
 #include "rtc.h"
+#include <nyma.h>
 
 //=============================================================================
 
@@ -201,6 +202,12 @@ uint8 loadB(uint32 address)
 
         if(FastReadMap[address >> 16])
          return(FastReadMap[address >> 16][address]);
+	if (address == 0x6f82)
+	{
+		LagFlag = false;
+		if (InputCallback)
+			InputCallback();
+	}
 
 
         uint8* ptr = (uint8*)translate_address_read(address);
@@ -257,6 +264,12 @@ uint16 loadW(uint32 address)
 
 	if(FastReadMap[address >> 16])
 	 return(MDFN_de16lsb<true>(&FastReadMap[address >> 16][address]));
+	if (address == 0x6f82)
+	{
+		LagFlag = false;
+		if (InputCallback)
+			InputCallback();
+	}
 
         uint16* ptr = (uint16*)translate_address_read(address);
 	if(ptr)
