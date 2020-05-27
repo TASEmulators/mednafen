@@ -24,8 +24,8 @@
        of Mednafen's framework.
 */
 
-#include <mednafen/mednafen.h>
-#include <mednafen/MThreading.h>
+#include <src/mednafen.h>
+#include <src/MThreading.h>
 //
 //
 //

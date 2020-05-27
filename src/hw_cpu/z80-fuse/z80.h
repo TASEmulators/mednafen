@@ -26,8 +26,8 @@
 #ifndef FUSE_Z80_H
 #define FUSE_Z80_H
 
-#include <mednafen/mednafen.h>
-#include <mednafen/state.h>
+#include <src/mednafen.h>
+#include <src/state.h>
 
 namespace Mednafen
 {

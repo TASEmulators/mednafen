@@ -50,7 +50,7 @@
 #include "system.h"
 #include "rom.h"
 
-#include <mednafen/FileStream.h>
+#include <src/FileStream.h>
 
 CRom::CRom(const char *romfile)
 {

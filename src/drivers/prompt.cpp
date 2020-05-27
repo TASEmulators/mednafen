@@ -18,7 +18,7 @@
 #include "main.h"
 #include <trio/trio.h>
 #include "prompt.h"
-#include <mednafen/string/string.h>
+#include <src/string/string.h>
 
 HappyPrompt::HappyPrompt(void)
 {

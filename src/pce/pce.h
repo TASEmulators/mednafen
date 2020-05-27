@@ -1,9 +1,9 @@
 #ifndef __MDFN_PCE_PCE_H
 #define __MDFN_PCE_PCE_H
 
-#include <mednafen/mednafen.h>
-#include <mednafen/state.h>
-#include <mednafen/general.h>
+#include <src/mednafen.h>
+#include <src/state.h>
+#include <src/general.h>
 
 using namespace Mednafen;
 

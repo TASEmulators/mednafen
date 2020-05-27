@@ -19,7 +19,7 @@
 #define __MDFN_PCE_VCE_H
 
 #include "huc6280.h"
-#include <mednafen/hw_video/huc6270/vdc.h>
+#include <src/hw_video/huc6270/vdc.h>
 
 namespace MDFN_IEN_PCE
 {

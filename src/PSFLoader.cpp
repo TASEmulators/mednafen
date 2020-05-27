@@ -24,11 +24,11 @@
 */
 
 #include "mednafen.h"
-#include <mednafen/FileStream.h>
-#include <mednafen/compress/ZLInflateFilter.h>
+#include <src/FileStream.h>
+#include <src/compress/ZLInflateFilter.h>
 #include "PSFLoader.h"
 #include "general.h"
-#include <mednafen/string/string.h>
+#include <src/string/string.h>
 
 #include <trio/trio.h>
 #include <iconv.h>

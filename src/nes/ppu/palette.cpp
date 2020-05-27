@@ -22,7 +22,7 @@
 #include "../input.h"
 #include <math.h>
 #include "palette.h"
-#include <mednafen/FileStream.h>
+#include <src/FileStream.h>
 
 namespace MDFN_IEN_NES
 {

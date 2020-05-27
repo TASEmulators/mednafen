@@ -26,12 +26,12 @@
 #include "sio.h"
 #include "cdc.h"
 #include "spu.h"
-#include <mednafen/FileStream.h>
-#include <mednafen/mempatcher.h>
-#include <mednafen/PSFLoader.h>
-#include <mednafen/player.h>
-#include <mednafen/hash/sha256.h>
-#include <mednafen/cheat_formats/psx.h>
+#include <src/FileStream.h>
+#include <src/mempatcher.h>
+#include <src/PSFLoader.h>
+#include <src/player.h>
+#include <src/hash/sha256.h>
+#include <src/cheat_formats/psx.h>
 
 #include <zlib.h>
 

@@ -38,7 +38,7 @@
 
 #include "pcfx.h"
 #include "king.h"
-#include <mednafen/cdrom/scsicd.h>
+#include <src/cdrom/scsicd.h>
 #include "interrupt.h"
 #include "rainbow.h"
 #include "soundbox.h"
@@ -46,8 +46,8 @@
 #include "timer.h"
 #include "debug.h"
 #include <trio/trio.h>
-#include <mednafen/video.h>
-#include <mednafen/sound/OwlResampler.h>
+#include <src/video.h>
+#include <src/sound/OwlResampler.h>
 
 namespace MDFN_IEN_PCFX
 {

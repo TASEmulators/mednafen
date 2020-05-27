@@ -25,7 +25,7 @@
 #include "v30mz.h"
 #include "rtc.h"
 #include "comm.h"
-#include <mednafen/video.h>
+#include <src/video.h>
 #include <trio/trio.h>
 
 namespace MDFN_IEN_WSWAN

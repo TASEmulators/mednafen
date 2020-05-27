@@ -18,9 +18,9 @@
 #include "neopop.h"
 #include "sound.h"
 
-#include <mednafen/sound/Blip_Buffer.h>
+#include <src/sound/Blip_Buffer.h>
 #include "T6W28_Apu.h"
-#include <mednafen/sound/Stereo_Buffer.h>
+#include <src/sound/Stereo_Buffer.h>
 
 namespace MDFN_IEN_NGP
 {

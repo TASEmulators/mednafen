@@ -24,8 +24,8 @@
 #include "movie.h"
 #include "state_rewind.h"
 
-#include <mednafen/MemoryStream.h>
-#include <mednafen/quicklz/quicklz.h>
+#include <src/MemoryStream.h>
+#include <src/quicklz/quicklz.h>
 
 #if QLZ_COMPRESSION_LEVEL != 0
  #error "State rewinding code untested with QLZ_COMPRESSION_LEVEL != 0"

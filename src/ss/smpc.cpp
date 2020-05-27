@@ -25,11 +25,11 @@
 */
 
 #include "ss.h"
-#include <mednafen/mednafen.h>
-#include <mednafen/general.h>
-#include <mednafen/Stream.h>
-#include <mednafen/Time.h>
-#include <mednafen/cdrom/CDUtility.h>
+#include <src/mednafen.h>
+#include <src/general.h>
+#include <src/Stream.h>
+#include <src/Time.h>
+#include <src/cdrom/CDUtility.h>
 using namespace CDUtility;
 
 #include "smpc.h"

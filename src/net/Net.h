@@ -22,7 +22,7 @@
 #ifndef __MDFN_NET_NETCLIENT_H
 #define __MDFN_NET_NETCLIENT_H
 
-#include <mednafen/mednafen.h>
+#include <src/mednafen.h>
 
 namespace Net
 {

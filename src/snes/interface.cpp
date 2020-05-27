@@ -15,15 +15,15 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <mednafen/mednafen.h>
-#include <mednafen/hash/md5.h>
-#include <mednafen/general.h>
-#include <mednafen/mempatcher.h>
-#include <mednafen/SNSFLoader.h>
-#include <mednafen/player.h>
-#include <mednafen/FileStream.h>
-#include <mednafen/resampler/resampler.h>
-#include <mednafen/cheat_formats/snes.h>
+#include <src/mednafen.h>
+#include <src/hash/md5.h>
+#include <src/general.h>
+#include <src/mempatcher.h>
+#include <src/SNSFLoader.h>
+#include <src/player.h>
+#include <src/FileStream.h>
+#include <src/resampler/resampler.h>
+#include <src/cheat_formats/snes.h>
 
 #include "src/base.hpp"
 

@@ -27,10 +27,10 @@
 #include "debug.h"
 #endif
 #include "input.h"
-#include <mednafen/general.h>
-#include <mednafen/string/string.h>
-#include <mednafen/hash/md5.h>
-#include <mednafen/mempatcher.h>
+#include <src/general.h>
+#include <src/string/string.h>
+#include <src/hash/md5.h>
+#include <src/mempatcher.h>
 #include <iconv.h>
 
 namespace MDFN_IEN_VB

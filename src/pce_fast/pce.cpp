@@ -24,9 +24,9 @@
 #include "pcecd.h"
 #include "pcecd_drive.h"
 #include "hes.h"
-#include <mednafen/hw_misc/arcade_card/arcade_card.h>
-#include <mednafen/mempatcher.h>
-#include <mednafen/cdrom/CDInterface.h>
+#include <src/hw_misc/arcade_card/arcade_card.h>
+#include <src/mempatcher.h>
+#include <src/cdrom/CDInterface.h>
 
 extern MDFNGI EmulatedPCE_Fast;
 

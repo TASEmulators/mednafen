@@ -1,13 +1,13 @@
 #ifndef __MDFN_NES_NES_H
 #define __MDFN_NES_NES_H
 
-#include <mednafen/mednafen.h>
-#include <mednafen/state.h>
-#include <mednafen/general.h>
-#include <mednafen/string/string.h>
-#include <mednafen/file.h>
-#include <mednafen/hash/md5.h>
-#include <mednafen/video.h>
+#include <src/mednafen.h>
+#include <src/state.h>
+#include <src/general.h>
+#include <src/string/string.h>
+#include <src/file.h>
+#include <src/hash/md5.h>
+#include <src/video.h>
 
 using namespace Mednafen;
 

@@ -29,8 +29,8 @@
  it makes emulator CPU usage borderline too high.
 */
 
-#include <mednafen/mednafen.h>
-#include <mednafen/FileStream.h>
+#include <src/mednafen.h>
+#include <src/FileStream.h>
 
 #include "ss.h"
 #include "smpc.h"

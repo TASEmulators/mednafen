@@ -16,9 +16,9 @@
 // along with this program; if not, write to the Free Software Foundation,
 // Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
-#include <mednafen/mednafen.h>
-#include <mednafen/mempatcher.h>
-#include <mednafen/Time.h>
+#include <src/mednafen.h>
+#include <src/mempatcher.h>
+#include <src/Time.h>
 #include "gbGlobals.h"
 #include "memory.h"
 

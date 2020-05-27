@@ -24,9 +24,9 @@
 // registers whose values may change between the individual byte reads.
 // (May not be worth emulating if it could possibly trigger problems in games)
 
-#include <mednafen/mednafen.h>
-#include <mednafen/resampler/resampler.h>
-#include <mednafen/hw_cpu/m68k/m68k.h>
+#include <src/mednafen.h>
+#include <src/resampler/resampler.h>
+#include <src/hw_cpu/m68k/m68k.h>
 
 #ifndef MDFN_SSFPLAY_COMPILE
 #include "ss.h"

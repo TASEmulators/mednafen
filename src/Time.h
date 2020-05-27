@@ -22,7 +22,7 @@
 #ifndef __MDFN_TIME_H
 #define __MDFN_TIME_H
 
-#include <mednafen/types.h>
+#include <src/types.h>
 
 #include <time.h>
 

@@ -25,9 +25,9 @@
 // SMPC clock change code.
 
 #include "ss.h"
-#include <mednafen/mednafen.h>
-#include <mednafen/general.h>
-#include <mednafen/FileStream.h>
+#include <src/mednafen.h>
+#include <src/general.h>
+#include <src/FileStream.h>
 #include "vdp1.h"
 #include "vdp2.h"
 #include "scu.h"

@@ -22,8 +22,8 @@
 #ifndef __MDFN_PSX_CDC_H
 #define __MDFN_PSX_CDC_H
 
-#include <mednafen/cdrom/CDInterface.h>
-#include <mednafen/cdrom/SimpleFIFO.h>
+#include <src/cdrom/CDInterface.h>
+#include <src/cdrom/SimpleFIFO.h>
 
 namespace MDFN_IEN_PSX
 {

@@ -1,7 +1,7 @@
 #ifndef __PCE_VDC_H
 #define __PCE_VDC_H
 
-#include <mednafen/lepacker.h>
+#include <src/lepacker.h>
 
 namespace Mednafen
 {

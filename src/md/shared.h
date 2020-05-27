@@ -1,11 +1,11 @@
 #ifndef _SHARED_H_
 #define _SHARED_H_
 
-#include <mednafen/mednafen.h>
+#include <src/mednafen.h>
 
-#include <mednafen/hw_cpu/m68k/m68k.h>
-#include <mednafen/hw_cpu/z80-fuse/z80.h>
-#include <mednafen/state.h>
+#include <src/hw_cpu/m68k/m68k.h>
+#include <src/hw_cpu/z80-fuse/z80.h>
+#include <src/state.h>
 
 using namespace Mednafen;
 

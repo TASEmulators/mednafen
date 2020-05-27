@@ -22,7 +22,7 @@
 #ifndef __MDFN_QTRECORD_H
 #define __MDFN_QTRECORD_H
 
-#include <mednafen/FileStream.h>
+#include <src/FileStream.h>
 #include "resampler/resampler.h"
 
 namespace Mednafen

@@ -23,7 +23,7 @@
 #include "input.h"
 #include "Joystick.h"
 #include "Joystick_Linux.h"
-#include <mednafen/FileStream.h>
+#include <src/FileStream.h>
 
 #include <sys/types.h>
 #include <sys/stat.h>

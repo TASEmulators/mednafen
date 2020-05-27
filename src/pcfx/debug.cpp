@@ -25,13 +25,13 @@
 #include <iconv.h>
 
 #include "debug.h"
-#include <mednafen/hw_cpu/v810/v810_cpuD.h>
+#include <src/hw_cpu/v810/v810_cpuD.h>
 #include "interrupt.h"
 #include "timer.h"
 #include "king.h"
 #include "rainbow.h"
 #include "input.h"
-#include <mednafen/cdrom/scsicd.h>
+#include <src/cdrom/scsicd.h>
 
 namespace MDFN_IEN_PCFX
 {

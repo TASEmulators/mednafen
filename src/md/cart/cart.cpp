@@ -32,8 +32,8 @@
 #include "map_yase.h"
 
 #include "../header.h"
-#include <mednafen/hash/md5.h>
-#include <mednafen/general.h>
+#include <src/hash/md5.h>
+#include <src/general.h>
 #include <ctype.h>
 
 #include <zlib.h>

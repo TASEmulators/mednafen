@@ -25,7 +25,7 @@
 #include "snes.h"
 #include "apu.h"
 
-#include <mednafen/sound/OwlResampler.h>
+#include <src/sound/OwlResampler.h>
 
 #ifdef MDFN_SNES_FAUST_SPC700_IPL_EFFECTS_ANALYZE
  #include <mednafen/FileStream.h>

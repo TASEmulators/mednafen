@@ -172,7 +172,7 @@ enum
 	MIKIE_PIXEL_FORMAT_32BPP,
 };
 
-#include <mednafen/sound/Stereo_Buffer.h>
+#include <src/sound/Stereo_Buffer.h>
 
 typedef Blip_Synth<blip_good_quality, 256 * 4> Synth;
 

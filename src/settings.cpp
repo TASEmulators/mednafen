@@ -30,7 +30,7 @@
 #include "settings.h"
 #include "settings-driver.h"
 #include "string/escape.h"
-#include <mednafen/string/string.h>
+#include <src/string/string.h>
 #include "FileStream.h"
 #include "MemoryStream.h"
 

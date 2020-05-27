@@ -4,10 +4,10 @@
 */
 
 #include "shared.h"
-#include <mednafen/hw_sound/ym2612/Ym2612_Emu.h>
-#include <mednafen/hw_sound/sms_apu/Sms_Apu.h>
-#include <mednafen/sound/Blip_Buffer.h>
-#include <mednafen/sound/Stereo_Buffer.h>
+#include <src/hw_sound/ym2612/Ym2612_Emu.h>
+#include <src/hw_sound/sms_apu/Sms_Apu.h>
+#include <src/sound/Blip_Buffer.h>
+#include <src/sound/Stereo_Buffer.h>
 
 namespace MDFN_IEN_MD
 {

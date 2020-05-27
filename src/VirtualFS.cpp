@@ -30,8 +30,8 @@
  bool finfo(FileInfo* fi);
 */
 
-#include <mednafen/mednafen.h>
-#include <mednafen/VirtualFS.h>
+#include <src/mednafen.h>
+#include <src/VirtualFS.h>
 
 namespace Mednafen
 {

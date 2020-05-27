@@ -28,20 +28,20 @@
 #include "lepacker.h"
 #include "tests.h"
 
-#include <mednafen/hash/md5.h>
-#include <mednafen/hash/sha1.h>
-#include <mednafen/hash/sha256.h>
+#include <src/hash/md5.h>
+#include <src/hash/sha1.h>
+#include <src/hash/sha256.h>
 
-#include <mednafen/sound/SwiftResampler.h>
-#include <mednafen/sound/OwlResampler.h>
-#include <mednafen/sound/WAVRecord.h>
-#include <mednafen/SimpleBitset.h>
+#include <src/sound/SwiftResampler.h>
+#include <src/sound/OwlResampler.h>
+#include <src/sound/WAVRecord.h>
+#include <src/SimpleBitset.h>
 
-#include <mednafen/Time.h>
-#include <mednafen/MThreading.h>
+#include <src/Time.h>
+#include <src/MThreading.h>
 
-#include <mednafen/MemoryStream.h>
-#include <mednafen/MTStreamReader.h>
+#include <src/MemoryStream.h>
+#include <src/MTStreamReader.h>
 
 #include <time.h>
 

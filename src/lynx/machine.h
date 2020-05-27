@@ -46,7 +46,7 @@
 #ifndef MACHINE_H
 #define MACHINE_H
 
-#include <mednafen/mednafen.h>
+#include <src/mednafen.h>
 using namespace Mednafen;
 
 typedef struct

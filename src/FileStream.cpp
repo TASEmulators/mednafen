@@ -23,9 +23,9 @@
 // as fseek() is guaranteed to be safe for this purpose, while fflush() is a bit undefined/implementation-defined
 // in this regard.
 
-#include <mednafen/types.h>
+#include <src/types.h>
 #include "FileStream.h"
-#include <mednafen/mednafen.h>
+#include <src/mednafen.h>
 
 #include <trio/trio.h>
 #include <sys/types.h>

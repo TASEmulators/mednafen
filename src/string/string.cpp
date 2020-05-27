@@ -24,7 +24,7 @@
 // If using a codepoint other than 0xFFFD for bad bytes, remember to adjust the string buffer
 // allocation multipliers in the *_to_UTF8() and *_to_UTF16() functions.
 
-#include <mednafen/mednafen.h>
+#include <src/mednafen.h>
 #include "string.h"
 
 #include <trio/trio.h>

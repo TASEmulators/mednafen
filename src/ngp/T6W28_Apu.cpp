@@ -1,6 +1,6 @@
 // T6W28_Snd_Emu
 
-#include <mednafen/mednafen.h>
+#include <src/mednafen.h>
 #include "T6W28_Apu.h"
 
 #undef require

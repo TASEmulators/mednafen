@@ -19,8 +19,8 @@
 ** 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#include <mednafen/mednafen.h>
-#include <mednafen/mempatcher.h>
+#include <src/mednafen.h>
+#include <src/mempatcher.h>
 
 #include <trio/trio.h>
 

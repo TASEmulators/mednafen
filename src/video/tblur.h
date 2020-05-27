@@ -22,7 +22,7 @@
 #ifndef __MDFN_TBLUR_H
 #define __MDFN_TBLUR_H
 
-#include <mednafen/video.h>
+#include <src/video.h>
 
 namespace Mednafen
 {

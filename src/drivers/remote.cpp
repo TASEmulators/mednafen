@@ -16,7 +16,7 @@
  */
 
 #include "main.h"
-#include <mednafen/string/escape.h>
+#include <src/string/escape.h>
 
 #if defined(HAVE_FCNTL) && defined(HAVE_FCNTL_H)
 #include <trio/trio.h>

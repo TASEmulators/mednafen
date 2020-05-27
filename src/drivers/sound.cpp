@@ -20,7 +20,7 @@
 
 #include "sound.h"
 
-#include <mednafen/sexyal/sexyal.h>
+#include <src/sexyal/sexyal.h>
 
 static SexyAL_device* Output = NULL;
 static SexyAL_format format;

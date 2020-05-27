@@ -22,7 +22,7 @@
 #ifndef __MDFN_PSFLOADER_H
 #define __MDFN_PSFLOADER_H
 
-#include <mednafen/Stream.h>
+#include <src/Stream.h>
 
 #include <map>
 

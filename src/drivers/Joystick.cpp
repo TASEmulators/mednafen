@@ -23,8 +23,8 @@
 #include "main.h"
 #include "input.h"
 #include <trio/trio.h>
-#include <mednafen/hash/md5.h>
-#include <mednafen/math_ops.h>
+#include <src/hash/md5.h>
+#include <src/math_ops.h>
 
 #include "Joystick.h"
 

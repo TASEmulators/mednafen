@@ -56,11 +56,11 @@
 #include "remote.h"
 #include "ers.h"
 #include "rmdui.h"
-#include <mednafen/qtrecord.h>
-#include <mednafen/tests.h>
-#include <mednafen/MemoryStream.h>
-#include <mednafen/string/string.h>
-#include <mednafen/file.h>
+#include <src/qtrecord.h>
+#include <src/tests.h>
+#include <src/MemoryStream.h>
+#include <src/string/string.h>
+#include <src/file.h>
 
 static bool SuppressErrorPopups;	// Set from env variable "MEDNAFEN_NOPOPUPS"
 
@@ -637,8 +637,8 @@ static void RemoveSignalHandlers(void) { }
 //
 //
 //
-#include <mednafen/FileStream.h>
-#include <mednafen/compress/GZFileStream.h>
+#include <src/FileStream.h>
+#include <src/compress/GZFileStream.h>
 static void Stream64Test(const char* path)
 {
  try
@@ -725,7 +725,7 @@ static void Stream64Test(const char* path)
 //
 //
 //
-#include <mednafen/cdrom/CDInterface.h>
+#include <src/cdrom/CDInterface.h>
 static void CDTest(const char* path)
 {
  try

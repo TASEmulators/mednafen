@@ -77,6 +77,6 @@ void MDFN_StateAction(StateMem *sm, const unsigned load, const bool data_only);
 #include "mednafen-driver.h"
 #include "memory.h"
 
-#include <mednafen/string/string.h>
+#include <src/string/string.h>
 
 #endif

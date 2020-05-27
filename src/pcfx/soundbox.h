@@ -43,6 +43,6 @@ void SoundBox_ResetTS(const v810_timestamp_t ts_base);
 
 }
 
-#include <mednafen/sound/Blip_Buffer.h>
-#include <mednafen/sound/Stereo_Buffer.h>
+#include <src/sound/Blip_Buffer.h>
+#include <src/sound/Stereo_Buffer.h>
 #endif

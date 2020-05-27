@@ -25,12 +25,12 @@
 // Guts of RTC implementation is generic.
 //
 
-#include <mednafen/mednafen.h>
+#include <src/mednafen.h>
 #include "GBA.h"
 #include "Globals.h"
 #include "Port.h"
 
-#include <mednafen/Time.h>
+#include <src/Time.h>
 
 namespace MDFN_IEN_GBA
 {

@@ -1,7 +1,7 @@
 #ifndef __MDFN_FILE_H
 #define __MDFN_FILE_H
 
-#include <mednafen/Stream.h>
+#include <src/Stream.h>
 
 namespace Mednafen
 {

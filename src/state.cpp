@@ -19,7 +19,7 @@
 
 #include <map>
 
-#include <mednafen/Time.h>
+#include <src/Time.h>
 
 #include "driver.h"
 #include "general.h"

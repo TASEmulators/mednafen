@@ -22,8 +22,8 @@
 #ifndef __MDFN_SNSFLOADER_H
 #define __MDFN_SNSFLOADER_H
 
-#include <mednafen/PSFLoader.h>
-#include <mednafen/MemoryStream.h>
+#include <src/PSFLoader.h>
+#include <src/MemoryStream.h>
 
 namespace Mednafen
 {

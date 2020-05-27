@@ -23,7 +23,7 @@
 #include "memdebugger.h"
 #include "debugger.h"
 #include "prompt.h"
-#include <mednafen/FileStream.h>
+#include <src/FileStream.h>
 
 #include <trio/trio.h>
 

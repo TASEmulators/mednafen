@@ -80,11 +80,11 @@
 		timekeeping variables will get out of sync and everything will go boom.
 */
 
-#include <mednafen/mednafen.h>
-#include <mednafen/cdrom/CDInterface.h>
-#include <mednafen/cdrom/scsicd.h>
-#include <mednafen/sound/okiadpcm.h>
-#include <mednafen/cdrom/SimpleFIFO.h>
+#include <src/mednafen.h>
+#include <src/cdrom/CDInterface.h>
+#include <src/cdrom/scsicd.h>
+#include <src/sound/okiadpcm.h>
+#include <src/cdrom/SimpleFIFO.h>
 
 using namespace Mednafen;
 

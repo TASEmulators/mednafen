@@ -26,12 +26,12 @@
 #include "apu.h"
 #include "ppu.h"
 
-#include <mednafen/mednafen.h>
-#include <mednafen/mempatcher.h>
-#include <mednafen/SNSFLoader.h>
-#include <mednafen/player.h>
-#include <mednafen/hash/sha1.h>
-#include <mednafen/cheat_formats/snes.h>
+#include <src/mednafen.h>
+#include <src/mempatcher.h>
+#include <src/SNSFLoader.h>
+#include <src/player.h>
+#include <src/hash/sha1.h>
+#include <src/cheat_formats/snes.h>
 
 #include <bitset>
 

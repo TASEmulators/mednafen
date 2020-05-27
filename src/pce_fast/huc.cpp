@@ -23,12 +23,12 @@
 
 #include "pce.h"
 #include "pcecd.h"
-#include <mednafen/hw_misc/arcade_card/arcade_card.h>
-#include <mednafen/hash/md5.h>
-#include <mednafen/file.h>
-#include <mednafen/cdrom/CDInterface.h>
-#include <mednafen/mempatcher.h>
-#include <mednafen/compress/GZFileStream.h>
+#include <src/hw_misc/arcade_card/arcade_card.h>
+#include <src/hash/md5.h>
+#include <src/file.h>
+#include <src/cdrom/CDInterface.h>
+#include <src/mempatcher.h>
+#include <src/compress/GZFileStream.h>
 
 #include "huc.h"
 

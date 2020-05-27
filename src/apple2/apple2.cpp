@@ -25,18 +25,18 @@
 	circuitry would be reading open bus for hires mode?
 */
 
-#include <mednafen/mednafen.h>
-#include <mednafen/general.h>
-#include <mednafen/FileStream.h>
-#include <mednafen/MemoryStream.h>
-#include <mednafen/compress/GZFileStream.h>
-#include <mednafen/compress/ZLInflateFilter.h>
-#include <mednafen/mempatcher.h>
-#include <mednafen/hash/sha256.h>
-#include <mednafen/SimpleBitset.h>
-#include <mednafen/Time.h>
-#include <mednafen/sound/DSPUtility.h>
-#include <mednafen/sound/SwiftResampler.h>
+#include <src/mednafen.h>
+#include <src/general.h>
+#include <src/FileStream.h>
+#include <src/MemoryStream.h>
+#include <src/compress/GZFileStream.h>
+#include <src/compress/ZLInflateFilter.h>
+#include <src/mempatcher.h>
+#include <src/hash/sha256.h>
+#include <src/SimpleBitset.h>
+#include <src/Time.h>
+#include <src/sound/DSPUtility.h>
+#include <src/sound/SwiftResampler.h>
 
 #include <trio/trio.h>
 
@@ -86,7 +86,7 @@ extern MDFNGI EmulatedApple2;
 
 namespace MDFN_IEN_APPLE2
 {
-#include <mednafen/hw_cpu/6502/Core6502.h>
+#include <src/hw_cpu/6502/Core6502.h>
 
 #define APPLE2_MASTER_CLOCK 14318181.81818
 
@@ -415,7 +415,7 @@ INLINE void Core6502::BranchTrace(uint16 vector)
 }
 
 static const bool Core6502_EnableDecimalOps = true;
-#include <mednafen/hw_cpu/6502/Core6502.inc>
+#include <src/hw_cpu/6502/Core6502.inc>
 
 #include "sound.inc"
 #include "gameio.inc"

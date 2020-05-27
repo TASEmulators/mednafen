@@ -22,9 +22,9 @@
 #ifndef __MDFN_CDROM_CDINTERFACE_MT_H
 #define __MDFN_CDROM_CDINTERFACE_MT_H
 
-#include <mednafen/cdrom/CDInterface.h>
-#include <mednafen/cdrom/CDAccess.h>
-#include <mednafen/MThreading.h>
+#include <src/cdrom/CDInterface.h>
+#include <src/cdrom/CDAccess.h>
+#include <src/MThreading.h>
 #include <queue>
 
 namespace Mednafen

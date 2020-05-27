@@ -27,10 +27,10 @@
 */
 
 #include "wswan.h"
-#include <mednafen/Time.h>
+#include <src/Time.h>
 #include <limits.h>
 
-#include <mednafen/cdrom/CDUtility.h>	// We really should move the BCD functions somewhere else...
+#include <src/cdrom/CDUtility.h>	// We really should move the BCD functions somewhere else...
 using namespace CDUtility;
 
 namespace MDFN_IEN_WSWAN

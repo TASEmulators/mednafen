@@ -22,7 +22,7 @@
 #ifndef __MDFN_SS_VDP1_H
 #define __MDFN_SS_VDP1_H
 
-#include <mednafen/state.h>
+#include <src/state.h>
 
 namespace MDFN_IEN_SS
 {

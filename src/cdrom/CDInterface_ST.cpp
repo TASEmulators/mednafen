@@ -19,9 +19,9 @@
 ** 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#include <mednafen/mednafen.h>
-#include <mednafen/cdrom/CDInterface.h>
-#include <mednafen/cdrom/CDAccess.h>
+#include <src/mednafen.h>
+#include <src/cdrom/CDInterface.h>
+#include <src/cdrom/CDAccess.h>
 #include "CDInterface_ST.h"
 
 namespace Mednafen

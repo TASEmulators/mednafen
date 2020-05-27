@@ -25,7 +25,7 @@
 #include "v30mz.h"
 #include "memory.h"
 
-#include <mednafen/sound/Blip_Buffer.h>
+#include <src/sound/Blip_Buffer.h>
 
 namespace MDFN_IEN_WSWAN
 {

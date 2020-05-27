@@ -25,9 +25,9 @@
 
 #include "pce.h"
 #include "huc.h"
-#include <mednafen/video.h>
+#include <src/video.h>
 #include "vce.h"
-#include <mednafen/hw_video/huc6270/vdc.h>
+#include <src/hw_video/huc6270/vdc.h>
 #include "debug.h"
 #include "pcecd.h"
 #include <trio/trio.h>

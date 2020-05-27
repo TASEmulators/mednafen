@@ -19,7 +19,7 @@
 #include "GBA.h"
 #include "eeprom.h"
 
-#include <mednafen/FileStream.h>
+#include <src/FileStream.h>
 
 
 #define EEPROM_IDLE           0

@@ -19,8 +19,8 @@
 ** 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#include <mednafen/MThreading.h>
-#include <mednafen/Stream.h>
+#include <src/MThreading.h>
+#include <src/Stream.h>
 
 #ifndef __MDFN_MTSTREAMREADER_H
 #define __MDFN_MTSTREAMREADER_H

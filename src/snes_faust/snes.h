@@ -24,7 +24,7 @@
 
 #pragma GCC optimize ("unroll-loops")
 
-#include <mednafen/mednafen.h>
+#include <src/mednafen.h>
 
 using namespace Mednafen;
 

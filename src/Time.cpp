@@ -19,8 +19,8 @@
 ** 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#include <mednafen/mednafen.h>
-#include <mednafen/string/string.h>
+#include <src/mednafen.h>
+#include <src/string/string.h>
 #include "Time.h"
 
 #if defined(WIN32)

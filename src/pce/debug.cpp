@@ -24,11 +24,11 @@
 #include "debug.h"
 #include "vce.h"
 #include "huc.h"
-#include <mednafen/hw_video/huc6270/vdc.h>
+#include <src/hw_video/huc6270/vdc.h>
 #include "pcecd.h"
-#include <mednafen/hw_sound/pce_psg/pce_psg.h>
-#include <mednafen/cdrom/scsicd.h>
-#include <mednafen/hw_misc/arcade_card/arcade_card.h>
+#include <src/hw_sound/pce_psg/pce_psg.h>
+#include <src/cdrom/scsicd.h>
+#include <src/hw_misc/arcade_card/arcade_card.h>
 
 namespace MDFN_IEN_PCE
 {

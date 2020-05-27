@@ -19,7 +19,7 @@
 ** 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#include <mednafen/mednafen.h>
+#include <src/mednafen.h>
 #include "font-data.h"
 
 const font5x7 FontData5x7[] =

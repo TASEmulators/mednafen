@@ -16,13 +16,13 @@
  */
 
 #include "mednafen.h"
-#include <mednafen/FileStream.h>
-#include <mednafen/compress/GZFileStream.h>
-#include <mednafen/compress/ZIPReader.h>
-#include <mednafen/compress/ZLInflateFilter.h>
-#include <mednafen/MemoryStream.h>
-#include <mednafen/IPSPatcher.h>
-#include <mednafen/string/string.h>
+#include <src/FileStream.h>
+#include <src/compress/GZFileStream.h>
+#include <src/compress/ZIPReader.h>
+#include <src/compress/ZLInflateFilter.h>
+#include <src/MemoryStream.h>
+#include <src/IPSPatcher.h>
+#include <src/string/string.h>
 
 #include <trio/trio.h>
 

@@ -16,7 +16,7 @@
 #define __Z80_CONTROL__
 //=============================================================================
 
-#include <mednafen/hw_cpu/z80-fuse/z80.h>
+#include <src/hw_cpu/z80-fuse/z80.h>
 
 namespace MDFN_IEN_NGP
 {

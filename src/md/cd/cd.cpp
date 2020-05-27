@@ -16,9 +16,9 @@
  */
 
 #include "../shared.h"
-#include <mednafen/cdrom/CDInterface.h>
-#include <mednafen/general.h>
-#include <mednafen/FileStream.h>
+#include <src/cdrom/CDInterface.h>
+#include <src/general.h>
+#include <src/FileStream.h>
 #include "cd.h"
 #include "pcm.h"
 #include "cdc_cdd.h"

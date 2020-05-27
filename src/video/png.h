@@ -1,8 +1,8 @@
 #ifndef __MDFN_PNG_H
 #define __MDFN_PNG_H
 
-#include <mednafen/video.h>
-#include <mednafen/FileStream.h>
+#include <src/video.h>
+#include <src/FileStream.h>
 
 namespace Mednafen
 {

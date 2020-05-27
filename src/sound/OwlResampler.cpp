@@ -18,8 +18,8 @@
 // Don't pass more than about 40ms worth of audio data to Resample()
 // at a time.
 
-#include <mednafen/mednafen.h>
-#include <mednafen/state.h>
+#include <src/mednafen.h>
+#include <src/state.h>
 #include "OwlResampler.h"
 #include "DSPUtility.h"
 #include "../cputest/cputest.h"

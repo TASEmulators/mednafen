@@ -25,9 +25,9 @@
 // Ignore T4-T7 in hires and 31KHz monitor mode.
 
 #include "ss.h"
-#include <mednafen/mednafen.h>
-#include <mednafen/Time.h>
-#include <mednafen/MThreading.h>
+#include <src/mednafen.h>
+#include <src/Time.h>
+#include <src/MThreading.h>
 #include "vdp2_common.h"
 #include "vdp2_render.h"
 

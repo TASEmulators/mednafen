@@ -27,8 +27,8 @@
 #include "rtc.h"
 #include "v30mz.h"
 #include "comm.h"
-#include <mednafen/mempatcher.h>
-#include <mednafen/FileStream.h>
+#include <src/mempatcher.h>
+#include <src/FileStream.h>
 #include <time.h>
 #include <trio/trio.h>
 

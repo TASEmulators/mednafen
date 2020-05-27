@@ -21,7 +21,7 @@
 
 #include "psx.h"
 #include "frontio.h"
-#include <mednafen/FileStream.h>
+#include <src/FileStream.h>
 
 #include "input/gamepad.h"
 #include "input/dualanalog.h"

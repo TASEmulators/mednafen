@@ -23,8 +23,8 @@
 #include "general.h"
 #include "state.h"
 
-#include <mednafen/hash/md5.h>
-#include <mednafen/string/string.h>
+#include <src/hash/md5.h>
+#include <src/string/string.h>
 
 namespace Mednafen
 {

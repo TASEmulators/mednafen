@@ -20,7 +20,7 @@
 */
 
 #include "vb.h"
-#include <mednafen/hw_cpu/v810/v810_cpuD.h>
+#include <src/hw_cpu/v810/v810_cpuD.h>
 #include <trio/trio.h>
 #include <iconv.h>
 

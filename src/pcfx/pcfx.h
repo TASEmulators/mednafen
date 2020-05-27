@@ -22,11 +22,11 @@
 #ifndef __PCFX_PCFX_H
 #define __PCFX_PCFX_H
 
-#include <mednafen/mednafen.h>
-#include <mednafen/state.h>
-#include <mednafen/general.h>
-#include <mednafen/hw_cpu/v810/v810_cpu.h>
-#include <mednafen/hw_video/huc6270/vdc.h>
+#include <src/mednafen.h>
+#include <src/state.h>
+#include <src/general.h>
+#include <src/hw_cpu/v810/v810_cpu.h>
+#include <src/hw_video/huc6270/vdc.h>
 
 using namespace Mednafen;
 

@@ -25,12 +25,12 @@
 #include "netplay.h"
 #include "netplay-driver.h"
 #include "general.h"
-#include <mednafen/string/string.h>
+#include <src/string/string.h>
 #include "state.h"
 #include "movie.h"
-#include <mednafen/hash/md5.h>
-#include <mednafen/Time.h>
-#include <mednafen/net/Net.h>
+#include <src/hash/md5.h>
+#include <src/Time.h>
+#include <src/net/Net.h>
 #include "mempatcher.h"
 
 #include "MemoryStream.h"

@@ -22,7 +22,7 @@
 #ifndef __MDFN_PSX_SPU_H
 #define __MDFN_PSX_SPU_H
 
-#include <mednafen/resampler/resampler.h>
+#include <src/resampler/resampler.h>
 
 namespace MDFN_IEN_PSX
 {

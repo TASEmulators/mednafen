@@ -17,7 +17,7 @@
 */
 
 #include "shared.h"
-#include <mednafen/mempatcher.h>
+#include <src/mempatcher.h>
 
 namespace MDFN_IEN_SMS
 {

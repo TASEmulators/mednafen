@@ -22,8 +22,8 @@
 #ifndef __MDFN_WAVRECORD_H
 #define __MDFN_WAVRECORD_H
 
-#include <mednafen/mednafen.h>
-#include <mednafen/FileStream.h>
+#include <src/mednafen.h>
+#include <src/FileStream.h>
 
 namespace Mednafen
 {

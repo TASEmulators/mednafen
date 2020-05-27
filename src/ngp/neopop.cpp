@@ -13,9 +13,9 @@
 //---------------------------------------------------------------------------
 
 #include "neopop.h"
-#include <mednafen/general.h>
-#include <mednafen/hash/md5.h>
-#include <mednafen/FileStream.h>
+#include <src/general.h>
+#include <src/hash/md5.h>
+#include <src/FileStream.h>
 
 #include "Z80_interface.h"
 #include "interrupt.h"

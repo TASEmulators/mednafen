@@ -24,7 +24,7 @@
 */
 
 #include "video-common.h"
-#include <mednafen/string/string.h>
+#include <src/string/string.h>
 #include "font-data.h"
 
 namespace Mednafen

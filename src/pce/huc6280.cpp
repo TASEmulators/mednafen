@@ -27,7 +27,7 @@
 	Input port emulation is done externally.
 */
 
-#include <mednafen/mednafen.h>
+#include <src/mednafen.h>
 #include "huc6280.h"
 
 #include <string.h>

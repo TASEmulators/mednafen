@@ -16,8 +16,8 @@
 #define __NEOPOP__
 //=============================================================================
 
-#include <mednafen/mednafen.h>
-#include <mednafen/mempatcher.h>
+#include <src/mednafen.h>
+#include <src/mempatcher.h>
 
 using namespace Mednafen;
 

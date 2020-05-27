@@ -22,7 +22,7 @@
 #include "x6502.h"
 
 #include "sound.h"
-#include <mednafen/sound/SwiftResampler.h>
+#include <src/sound/SwiftResampler.h>
 
 #define SQ_SHIFT        8
 #define TRINPCM_SHIFT   0

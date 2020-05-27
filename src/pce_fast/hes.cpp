@@ -19,7 +19,7 @@
 #include "hes.h"
 #include "huc.h"
 #include "pcecd.h"
-#include <mednafen/player.h>
+#include <src/player.h>
 
 namespace PCE_Fast
 {

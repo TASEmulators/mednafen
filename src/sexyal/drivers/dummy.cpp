@@ -16,7 +16,7 @@
  */
 
 #include "../sexyal.h"
-#include <mednafen/Time.h>
+#include <src/Time.h>
 
 namespace Mednafen
 {

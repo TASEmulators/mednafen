@@ -19,7 +19,7 @@
 #include <trio/trio.h>
 #include "console.h"
 #include "video.h"
-#include <mednafen/string/string.h>
+#include <src/string/string.h>
 
 static MThreading::Thread *CheatThread = NULL;
 static MThreading::Mutex *CheatMutex = NULL;

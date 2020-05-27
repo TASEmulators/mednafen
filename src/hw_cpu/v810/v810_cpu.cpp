@@ -41,7 +41,7 @@ found freely through public domain sources.
 //////////////////////////////////////////////////////////
 // CPU routines
 
-#include <mednafen/mednafen.h>
+#include <src/mednafen.h>
 #include <trio/trio.h>
 
 //#include "pcfx.h"

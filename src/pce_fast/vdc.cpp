@@ -18,11 +18,11 @@
 /* VDC and VCE emulation */
 
 #include "pce.h"
-#include <mednafen/video.h>
+#include <src/video.h>
 #include "vdc.h"
 #include "huc.h"
 #include "pcecd.h"
-#include <mednafen/cputest/cputest.h>
+#include <src/cputest/cputest.h>
 #include <trio/trio.h>
 
 namespace PCE_Fast

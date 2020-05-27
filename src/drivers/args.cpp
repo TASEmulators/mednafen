@@ -23,7 +23,7 @@
 /*								*/
 /****************************************************************/
 
-#include <mednafen/types.h>
+#include <src/types.h>
 
 #include "args.h"
 

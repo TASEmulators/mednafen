@@ -34,8 +34,8 @@
 #include "input.h"
 #include "cart.h"
 
-#include <mednafen/mempatcher.h>
-#include <mednafen/hash/sha256.h>
+#include <src/mempatcher.h>
+#include <src/hash/sha256.h>
 
 #ifdef HAVE_MMX_INTRINSICS
  #include <mmintrin.h>

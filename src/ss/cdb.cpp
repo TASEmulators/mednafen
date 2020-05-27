@@ -51,13 +51,13 @@
 // TODO: Test play command while filesys op is in progress.
 
 #include "ss.h"
-#include <mednafen/mednafen.h>
+#include <src/mednafen.h>
 #include "scu.h"
 #include "sound.h"
 #include "cdb.h"
 
-#include <mednafen/cdrom/CDUtility.h>
-#include <mednafen/cdrom/CDInterface.h>
+#include <src/cdrom/CDUtility.h>
+#include <src/cdrom/CDInterface.h>
 using namespace CDUtility;
 
 namespace MDFN_IEN_SS

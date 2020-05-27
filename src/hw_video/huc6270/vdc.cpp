@@ -17,9 +17,9 @@
 
 /* VDC emulation */
 
-#include <mednafen/mednafen.h>
-#include <mednafen/video.h>
-#include <mednafen/lepacker.h>
+#include <src/mednafen.h>
+#include <src/video.h>
+#include <src/lepacker.h>
 
 #include <trio/trio.h>
 #include <math.h>

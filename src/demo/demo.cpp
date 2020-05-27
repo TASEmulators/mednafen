@@ -15,11 +15,11 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <mednafen/mednafen.h>
-#include <mednafen/sound/OwlResampler.h>
-#include <mednafen/video/primitives.h>
-#include <mednafen/video/text.h>
-#include <mednafen/Time.h>
+#include <src/mednafen.h>
+#include <src/sound/OwlResampler.h>
+#include <src/video/primitives.h>
+#include <src/video/text.h>
+#include <src/Time.h>
 #include <trio/trio.h>
 
 using namespace Mednafen;

@@ -22,9 +22,9 @@
 #include "pcfx.h"
 #include "soundbox.h"
 #include "king.h"
-#include <mednafen/cdrom/scsicd.h>
-#include <mednafen/hw_sound/pce_psg/pce_psg.h>
-#include <mednafen/sound/OwlResampler.h>
+#include <src/cdrom/scsicd.h>
+#include <src/hw_sound/pce_psg/pce_psg.h>
+#include <src/sound/OwlResampler.h>
 
 #include <trio/trio.h>
 

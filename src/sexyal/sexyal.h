@@ -15,8 +15,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <mednafen/types.h>
-#include <mednafen/string/string.h>
+#include <src/types.h>
+#include <src/string/string.h>
 
 namespace Mednafen
 {

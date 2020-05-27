@@ -35,7 +35,7 @@
 #include "cart.h"
 #include "ppu_mtrender.h"
 
-#include <mednafen/mempatcher.h>
+#include <src/mempatcher.h>
 
 namespace MDFN_IEN_SNES_FAUST
 {

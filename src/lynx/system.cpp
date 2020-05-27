@@ -56,9 +56,9 @@
 
 #include "system.h"
 
-#include <mednafen/general.h>
-#include <mednafen/mempatcher.h>
-#include <mednafen/hash/md5.h>
+#include <src/general.h>
+#include <src/mempatcher.h>
+#include <src/hash/md5.h>
 
 CSystem::CSystem(GameFile* gf)
 {

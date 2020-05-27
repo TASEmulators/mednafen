@@ -19,9 +19,9 @@
 #include "shared.h"
 #include "cart/cart.h"
 #include "cd/cd.h"
-#include <mednafen/hash/md5.h>
-#include <mednafen/general.h>
-#include <mednafen/mempatcher.h>
+#include <src/hash/md5.h>
+#include <src/general.h>
+#include <src/mempatcher.h>
 
 #include <trio/trio.h>
 

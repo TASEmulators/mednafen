@@ -1,7 +1,7 @@
 #ifndef __MDFN_NES_INPUT_H
 #define __MDFN_NES_INPUT_H
 
-#include <mednafen/state.h>
+#include <src/state.h>
 
 namespace MDFN_IEN_NES
 {

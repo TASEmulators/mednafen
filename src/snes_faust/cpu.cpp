@@ -49,7 +49,7 @@
 
 */
 
-#include <mednafen/mednafen.h>
+#include <src/mednafen.h>
 using namespace Mednafen;
 
 #include "cpu.h"

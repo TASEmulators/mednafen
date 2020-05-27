@@ -29,12 +29,12 @@
 #include "rainbow.h"
 #include "huc6273.h"
 #include "fxscsi.h"
-#include <mednafen/cdrom/scsicd.h>
-#include <mednafen/mempatcher.h>
-#include <mednafen/cdrom/CDInterface.h>
-#include <mednafen/hash/md5.h>
-#include <mednafen/FileStream.h>
-#include <mednafen/compress/GZFileStream.h>
+#include <src/cdrom/scsicd.h>
+#include <src/mempatcher.h>
+#include <src/cdrom/CDInterface.h>
+#include <src/hash/md5.h>
+#include <src/FileStream.h>
+#include <src/compress/GZFileStream.h>
 
 #include <trio/trio.h>
 

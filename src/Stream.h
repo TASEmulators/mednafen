@@ -24,7 +24,7 @@
 #ifndef __MDFN_STREAM_H
 #define __MDFN_STREAM_H
 
-#include <mednafen/types.h>
+#include <src/types.h>
 
 namespace Mednafen
 {

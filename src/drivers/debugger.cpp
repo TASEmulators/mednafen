@@ -20,7 +20,7 @@
 */
 
 #include "main.h"
-#include <mednafen/FileStream.h>
+#include <src/FileStream.h>
 
 #include <trio/trio.h>
 #include <map>

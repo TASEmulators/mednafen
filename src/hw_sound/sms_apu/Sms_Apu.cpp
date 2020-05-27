@@ -1,6 +1,6 @@
 // Sms_Snd_Emu 0.1.4. http://www.slack.net/~ant/
 
-#include <mednafen/mednafen.h>
+#include <src/mednafen.h>
 #include "Sms_Apu.h"
 
 #undef require

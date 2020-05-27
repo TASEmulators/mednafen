@@ -1,7 +1,7 @@
 #ifndef _BX_DISASM_H_
 #define _BX_DISASM_H_
 
-#include <mednafen/types.h>
+#include <src/types.h>
 
 typedef uint16 bx_address;
 

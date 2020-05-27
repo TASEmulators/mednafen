@@ -23,8 +23,8 @@
 #include "ppu.h"
 #include "ppu_mtrender.h"
 
-#include <mednafen/Time.h>
-#include <mednafen/hash/sha256.h>
+#include <src/Time.h>
+#include <src/hash/sha256.h>
 
 #ifdef HAVE_MMX_INTRINSICS
  #include <mmintrin.h>

@@ -18,14 +18,14 @@
 
 #include "GBA.h"
 
-#include <mednafen/general.h>
-#include <mednafen/player.h>
-#include <mednafen/file.h>
-#include <mednafen/state.h>
-#include <mednafen/mempatcher.h>
-#include <mednafen/hash/md5.h>
-#include <mednafen/FileStream.h>
-#include <mednafen/PSFLoader.h>
+#include <src/general.h>
+#include <src/player.h>
+#include <src/file.h>
+#include <src/state.h>
+#include <src/mempatcher.h>
+#include <src/hash/md5.h>
+#include <src/FileStream.h>
+#include <src/PSFLoader.h>
 
 #include "GBAinline.h"
 #include "Globals.h"

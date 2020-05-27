@@ -19,12 +19,12 @@
 ** 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#include <mednafen/mednafen.h>
-#include <mednafen/general.h>
-#include <mednafen/FileStream.h>
-#include <mednafen/PSFLoader.h>
-#include <mednafen/SSFLoader.h>
-#include <mednafen/player.h>
+#include <src/mednafen.h>
+#include <src/general.h>
+#include <src/FileStream.h>
+#include <src/PSFLoader.h>
+#include <src/SSFLoader.h>
+#include <src/player.h>
 
 using namespace Mednafen;
 

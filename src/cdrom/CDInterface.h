@@ -22,9 +22,9 @@
 #ifndef __MDFN_CDROM_CDINTERFACE_H
 #define __MDFN_CDROM_CDINTERFACE_H
 
-#include <mednafen/types.h>
-#include <mednafen/Stream.h>
-#include <mednafen/cdrom/CDUtility.h>
+#include <src/types.h>
+#include <src/Stream.h>
+#include <src/cdrom/CDUtility.h>
 
 namespace Mednafen
 {

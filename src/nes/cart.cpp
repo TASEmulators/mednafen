@@ -23,8 +23,8 @@
 #include "cart.h"
 #include "x6502.h"
 
-#include <mednafen/mempatcher.h>
-#include <mednafen/FileStream.h>
+#include <src/mempatcher.h>
+#include <src/FileStream.h>
 
 /* 
    This file contains all code for coordinating the mapping in of the

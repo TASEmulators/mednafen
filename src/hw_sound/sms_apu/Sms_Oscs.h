@@ -4,7 +4,7 @@
 #ifndef SMS_OSCS_H
 #define SMS_OSCS_H
 
-#include <mednafen/sound/Blip_Buffer.h>
+#include <src/sound/Blip_Buffer.h>
 
 struct Sms_Osc
 {

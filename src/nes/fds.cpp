@@ -25,8 +25,8 @@
 #include "cart.h"
 #include "nsf.h"
 #include "fds-sound.h"
-#include <mednafen/FileStream.h>
-#include <mednafen/compress/GZFileStream.h>
+#include <src/FileStream.h>
+#include <src/compress/GZFileStream.h>
 
 #include <trio/trio.h>
 

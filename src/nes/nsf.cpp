@@ -24,7 +24,7 @@
 #include "fds-sound.h"
 #include "cart.h"
 #include "input.h"
-#include <mednafen/player.h>
+#include <src/player.h>
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846

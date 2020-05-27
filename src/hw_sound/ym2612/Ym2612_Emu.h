@@ -2,8 +2,8 @@
 #ifndef YM2612_EMU_H
 #define YM2612_EMU_H
 
-#include <mednafen/mednafen.h>
-#include <mednafen/lepacker.h>
+#include <src/mednafen.h>
+#include <src/lepacker.h>
 
 namespace Mednafen
 {

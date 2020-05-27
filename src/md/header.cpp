@@ -17,7 +17,7 @@
 
 #include "shared.h"
 #include "header.h"
-#include <mednafen/string/string.h>
+#include <src/string/string.h>
 
 namespace MDFN_IEN_MD
 {

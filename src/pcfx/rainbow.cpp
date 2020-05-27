@@ -30,7 +30,7 @@
 #include "interrupt.h"
 #include "idct.h"
 
-#include <mednafen/FileStream.h>
+#include <src/FileStream.h>
 
 namespace MDFN_IEN_PCFX
 {

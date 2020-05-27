@@ -19,7 +19,7 @@
 ** 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#include <mednafen/types.h>
+#include <src/types.h>
 #include "crc.h"
 
 namespace Mednafen

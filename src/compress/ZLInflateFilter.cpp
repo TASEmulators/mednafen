@@ -21,9 +21,9 @@
 
 // TODO: Seek testing and fixes, ensure will work for >2GB streams(see zs.total_out, zs.avail_out usage) on 32-bit platforms
 
-#include <mednafen/types.h>
+#include <src/types.h>
 #include "ZLInflateFilter.h"
-#include <mednafen/mednafen.h>
+#include <src/mednafen.h>
 
 namespace Mednafen
 {

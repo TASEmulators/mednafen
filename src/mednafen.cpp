@@ -17,20 +17,20 @@
 
 #include "mednafen.h"
 
-#include <mednafen/cdrom/CDUtility.h>
-#include <mednafen/cdrom/CDInterface.h>
+#include <src/cdrom/CDUtility.h>
+#include <src/cdrom/CDInterface.h>
 
-#include <mednafen/string/string.h>
-#include <mednafen/string/escape.h>
+#include <src/string/string.h>
+#include <src/string/escape.h>
 
-#include <mednafen/hash/md5.h>
-#include <mednafen/MemoryStream.h>
-#include <mednafen/Time.h>
+#include <src/hash/md5.h>
+#include <src/MemoryStream.h>
+#include <src/Time.h>
 
-#include <mednafen/sound/Fir_Resampler.h>
-#include <mednafen/sound/WAVRecord.h>
+#include <src/sound/Fir_Resampler.h>
+#include <src/sound/WAVRecord.h>
 
-#include <mednafen/NativeVFS.h>
+#include <src/NativeVFS.h>
 
 #include <minilzo/minilzo.h>
 

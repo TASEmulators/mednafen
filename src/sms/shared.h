@@ -1,8 +1,8 @@
 #ifndef _SHARED_H_
 #define _SHARED_H_
 
-#include <mednafen/mednafen.h>
-#include <mednafen/hw_cpu/z80-fuse/z80.h>
+#include <src/mednafen.h>
+#include <src/hw_cpu/z80-fuse/z80.h>
 
 using namespace Mednafen;
 

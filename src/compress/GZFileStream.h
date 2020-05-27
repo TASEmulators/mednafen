@@ -22,7 +22,7 @@
 #ifndef __MDFN_GZFILESTREAM_H
 #define __MDFN_GZFILESTREAM_H
 
-#include <mednafen/Stream.h>
+#include <src/Stream.h>
 
 #include <zlib.h>
 

@@ -15,10 +15,10 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <mednafen/mednafen.h>
-#include <mednafen/state.h>
-#include <mednafen/hw_sound/gb_apu/Gb_Apu.h>
-#include <mednafen/sound/Stereo_Buffer.h>
+#include <src/mednafen.h>
+#include <src/state.h>
+#include <src/hw_sound/gb_apu/Gb_Apu.h>
+#include <src/sound/Stereo_Buffer.h>
 
 #include "gb.h"
 #include "gbGlobals.h"

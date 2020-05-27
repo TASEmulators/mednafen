@@ -30,7 +30,7 @@
 #include "video.h"
 #include "input.h"
 
-#include <mednafen/AtomicFIFO.h>
+#include <src/AtomicFIFO.h>
 
 
 static AtomicFIFO<char*, 128> LineFIFO;

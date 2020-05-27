@@ -16,15 +16,15 @@
 // along with this program; if not, write to the Free Software Foundation,
 // Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
-#include <mednafen/mednafen.h>
-#include <mednafen/file.h>
-#include <mednafen/general.h>
-#include <mednafen/state.h>
-#include <mednafen/mempatcher.h>
-#include <mednafen/hash/md5.h>
-#include <mednafen/FileStream.h>
-#include <mednafen/Time.h>
-#include <mednafen/cheat_formats/gb.h>
+#include <src/mednafen.h>
+#include <src/file.h>
+#include <src/general.h>
+#include <src/state.h>
+#include <src/mempatcher.h>
+#include <src/hash/md5.h>
+#include <src/FileStream.h>
+#include <src/Time.h>
+#include <src/cheat_formats/gb.h>
 
 #include <zlib.h>
 

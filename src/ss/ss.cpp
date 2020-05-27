@@ -21,15 +21,15 @@
 
 // WARNING: Be careful with 32-bit access to 16-bit space, bus locking, etc. in respect to DMA and event updates(and where they can occur).
 
-#include <mednafen/mednafen.h>
-#include <mednafen/cdrom/CDInterface.h>
-#include <mednafen/general.h>
-#include <mednafen/FileStream.h>
-#include <mednafen/compress/GZFileStream.h>
-#include <mednafen/mempatcher.h>
-#include <mednafen/hash/sha256.h>
-#include <mednafen/hash/md5.h>
-#include <mednafen/Time.h>
+#include <src/mednafen.h>
+#include <src/cdrom/CDInterface.h>
+#include <src/general.h>
+#include <src/FileStream.h>
+#include <src/compress/GZFileStream.h>
+#include <src/mempatcher.h>
+#include <src/hash/sha256.h>
+#include <src/hash/md5.h>
+#include <src/Time.h>
 
 #include <bitset>
 

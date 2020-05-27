@@ -22,7 +22,7 @@
 #ifndef __MDFN_SNES_FAUST_APU_H
 #define __MDFN_SNES_FAUST_APU_H
 
-#include <mednafen/SPCReader.h>
+#include <src/SPCReader.h>
 
 namespace MDFN_IEN_SNES_FAUST
 {

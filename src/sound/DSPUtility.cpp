@@ -24,7 +24,7 @@
 	Digital Filters, Third Edition; R.W. Hamming
 */
 
-#include <mednafen/types.h>
+#include <src/types.h>
 #include "DSPUtility.h"
 
 #ifdef __FAST_MATH__

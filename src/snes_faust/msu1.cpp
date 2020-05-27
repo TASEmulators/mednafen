@@ -25,9 +25,9 @@
 
 #include <bitset>
 
-#include <mednafen/sound/OwlResampler.h>
-#include <mednafen/sound/DSPUtility.h>
-#include <mednafen/MTStreamReader.h>
+#include <src/sound/OwlResampler.h>
+#include <src/sound/DSPUtility.h>
+#include <src/MTStreamReader.h>
 //
 //
 #undef NDEBUG

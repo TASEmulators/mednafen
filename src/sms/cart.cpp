@@ -19,8 +19,8 @@
 #include "shared.h"
 #include "romdb.h"
 #include "cart.h"
-#include <mednafen/general.h>
-#include <mednafen/hash/md5.h>
+#include <src/general.h>
+#include <src/hash/md5.h>
 
 #include <zlib.h>
 

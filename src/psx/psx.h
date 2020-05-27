@@ -22,8 +22,8 @@
 #ifndef __MDFN_PSX_PSX_H
 #define __MDFN_PSX_PSX_H
 
-#include <mednafen/mednafen.h>
-#include <mednafen/general.h>
+#include <src/mednafen.h>
+#include <src/general.h>
 
 using namespace Mednafen;
 

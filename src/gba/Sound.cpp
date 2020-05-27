@@ -21,10 +21,10 @@
 #include "Sound.h"
 #include "Port.h"
 
-#include <mednafen/sound/Blip_Buffer.h>
-#include <mednafen/hw_sound/gb_apu/Gb_Apu.h>
+#include <src/sound/Blip_Buffer.h>
+#include <src/hw_sound/gb_apu/Gb_Apu.h>
 
-#include <mednafen/sound/Stereo_Buffer.h>
+#include <src/sound/Stereo_Buffer.h>
 
 namespace MDFN_IEN_GBA
 {

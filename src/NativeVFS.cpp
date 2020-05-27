@@ -19,9 +19,9 @@
 ** 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#include <mednafen/mednafen.h>
-#include <mednafen/NativeVFS.h>
-#include <mednafen/FileStream.h>
+#include <src/mednafen.h>
+#include <src/NativeVFS.h>
+#include <src/FileStream.h>
 
 #ifdef WIN32
  #include <mednafen/win32-common.h>

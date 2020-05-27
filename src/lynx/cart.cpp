@@ -47,8 +47,8 @@
 #include "system.h"
 
 #include "cart.h"
-#include <mednafen/state.h>
-#include <mednafen/hash/md5.h>
+#include <src/state.h>
+#include <src/hash/md5.h>
 
 LYNX_HEADER CCart::DecodeHeader(const uint8 *data)
 {

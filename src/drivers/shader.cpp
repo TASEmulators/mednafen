@@ -19,8 +19,8 @@
 #include "opengl.h"
 #include "shader.h"
 
-#include <mednafen/FileStream.h>
-#include <mednafen/MemoryStream.h>
+#include <src/FileStream.h>
+#include <src/MemoryStream.h>
 
 #define MDFN_GL_TRY(x, ...)								\
 	{										\

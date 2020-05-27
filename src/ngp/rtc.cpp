@@ -13,7 +13,7 @@
 //---------------------------------------------------------------------------
 
 #include "neopop.h"
-#include <mednafen/Time.h>
+#include <src/Time.h>
 
 namespace MDFN_IEN_NGP
 {

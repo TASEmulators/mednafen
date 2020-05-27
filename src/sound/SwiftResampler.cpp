@@ -40,10 +40,10 @@
 	to regularly exceed 75% of the 16-bit input sample range.
 */
 
-#include <mednafen/mednafen.h>
+#include <src/mednafen.h>
 #include "DSPUtility.h"
 #include "SwiftResampler.h"
-#include <mednafen/cputest/cputest.h>
+#include <src/cputest/cputest.h>
 
 #if defined(HAVE_ALTIVEC_INTRINSICS) && defined(HAVE_ALTIVEC_H)
  #include <altivec.h>

@@ -22,7 +22,7 @@
 #ifndef __MDFN_SS_SS_H
 #define __MDFN_SS_SS_H
 
-#include <mednafen/types.h>
+#include <src/types.h>
 
 #include <trio/trio.h>
 

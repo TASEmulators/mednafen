@@ -23,7 +23,7 @@
 #include "input.h"
 #include "Joystick.h"
 #include "Joystick_SDL.h"
-#include <mednafen/hash/md5.h>
+#include <src/hash/md5.h>
 
 #include <SDL.h>
 

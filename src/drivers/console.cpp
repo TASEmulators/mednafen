@@ -22,7 +22,7 @@
 #include "main.h"
 #include "console.h"
 #include "nongl.h"
-#include <mednafen/string/string.h>
+#include <src/string/string.h>
 
 MDFNConsole::MDFNConsole(bool setshellstyle)
 {

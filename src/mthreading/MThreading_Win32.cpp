@@ -27,14 +27,14 @@
  ...but at least the code is simple and should be much faster than SDL 1.2's condition variables for our purposes.
 */
 
-#include <mednafen/types.h>
-#include <mednafen/MThreading.h>
+#include <src/types.h>
+#include <src/MThreading.h>
 
 #include <stdio.h>
 #include <assert.h>
 #include <limits.h>
 
-#include <mednafen/win32-common.h>
+#include <src/win32-common.h>
 
 namespace Mednafen
 {

@@ -22,7 +22,7 @@
 #ifndef __MDFN_SPCREADER_H
 #define __MDFN_SPCREADER_H
 
-#include <mednafen/Stream.h>
+#include <src/Stream.h>
 
 namespace Mednafen
 {

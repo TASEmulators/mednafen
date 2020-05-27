@@ -3,7 +3,7 @@
 
 #ifdef WANT_DEBUGGER
 
-#include <mednafen/hw_sound/pce_psg/pce_psg.h>
+#include <src/hw_sound/pce_psg/pce_psg.h>
 
 namespace MDFN_IEN_PCE
 {

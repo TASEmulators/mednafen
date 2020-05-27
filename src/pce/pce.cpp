@@ -17,20 +17,20 @@
 
 #include "pce.h"
 #include "vce.h"
-#include <mednafen/hw_sound/pce_psg/pce_psg.h>
+#include <src/hw_sound/pce_psg/pce_psg.h>
 #include "input.h"
 #include "huc.h"
 #include "pcecd.h"
-#include <mednafen/cdrom/scsicd.h>
+#include <src/cdrom/scsicd.h>
 #include "hes.h"
 #include "debug.h"
 #include "tsushin.h"
-#include <mednafen/hw_misc/arcade_card/arcade_card.h>
-#include <mednafen/mempatcher.h>
-#include <mednafen/cdrom/CDInterface.h>
-#include <mednafen/hash/md5.h>
-#include <mednafen/FileStream.h>
-#include <mednafen/sound/OwlResampler.h>
+#include <src/hw_misc/arcade_card/arcade_card.h>
+#include <src/mempatcher.h>
+#include <src/cdrom/CDInterface.h>
+#include <src/hash/md5.h>
+#include <src/FileStream.h>
+#include <src/sound/OwlResampler.h>
 
 #include <zlib.h>
 

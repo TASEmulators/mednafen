@@ -24,7 +24,7 @@
 	Christoph Loeffler, Adriaan Ligtenberg, and George S. Moschytz
 */
 
-#include <mednafen/types.h>
+#include <src/types.h>
 #include "idct.h"
 
 namespace MDFN_IEN_PCFX

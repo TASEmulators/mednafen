@@ -1,5 +1,5 @@
 #include <atomic>
-#include <mednafen/MThreading.h>
+#include <src/MThreading.h>
 
 namespace MDFN_IEN_SNES_FAUST
 {

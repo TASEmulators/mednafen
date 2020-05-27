@@ -26,8 +26,8 @@
 #include <trio/trio.h>
 
 #include "general.h"
-#include <mednafen/string/string.h>
-#include <mednafen/hash/md5.h>
+#include <src/string/string.h>
+#include <src/hash/md5.h>
 #include "mempatcher.h"
 #include "FileStream.h"
 #include "MemoryStream.h"

@@ -19,10 +19,10 @@
 ** 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#include <mednafen/mednafen.h>
-#include <mednafen/general.h>
-#include <mednafen/string/string.h>
-#include <mednafen/MemoryStream.h>
+#include <src/mednafen.h>
+#include <src/general.h>
+#include <src/string/string.h>
+#include <src/MemoryStream.h>
 
 #include "CDAccess_CCD.h"
 #include <trio/trio.h>

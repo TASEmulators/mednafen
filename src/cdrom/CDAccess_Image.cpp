@@ -28,15 +28,15 @@
 	it will be added onto the implicit default 00:02:00 of pregap.
 */
 
-#include <mednafen/mednafen.h>
+#include <src/mednafen.h>
 
 #include <sys/types.h>
 
 #include <trio/trio.h>
 
-#include <mednafen/general.h>
-#include <mednafen/string/string.h>
-#include <mednafen/MemoryStream.h>
+#include <src/general.h>
+#include <src/string/string.h>
+#include <src/MemoryStream.h>
 
 #include "CDAccess.h"
 #include "CDAccess_Image.h"

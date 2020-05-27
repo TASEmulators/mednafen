@@ -21,14 +21,14 @@
 
 // TODO: Clear Q subchannel data on disc change and manual track change, add Q subchannel mode have variable(s).
 
-#include <mednafen/mednafen.h>
-#include <mednafen/cdrom/CDInterface.h>
+#include <src/mednafen.h>
+#include <src/cdrom/CDInterface.h>
 #include <trio/trio.h>
 
 using namespace Mednafen;
 using namespace CDUtility;
 
-#include <mednafen/resampler/resampler.h>
+#include <src/resampler/resampler.h>
 
 extern MDFNGI EmulatedCDPlay;
 

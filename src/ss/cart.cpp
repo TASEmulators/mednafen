@@ -20,9 +20,9 @@
 */
 
 #include "ss.h"
-#include <mednafen/mednafen.h>
-#include <mednafen/FileStream.h>
-#include <mednafen/general.h>
+#include <src/mednafen.h>
+#include <src/FileStream.h>
+#include <src/general.h>
 
 #include "cart.h"
 #include "cart/backup.h"

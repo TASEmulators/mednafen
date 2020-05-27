@@ -18,7 +18,7 @@
  Arcade Card emulation based on information provided by Ki and David Shadoff
 */
 
-#include <mednafen/mednafen.h>
+#include <src/mednafen.h>
 #include "arcade_card.h"
 
 namespace Mednafen

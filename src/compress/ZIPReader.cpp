@@ -22,7 +22,7 @@
 // TODO: 64-bit ZIP support(limit sizes to 2**63 - 2?)
 // TODO: Stream::clone()
 
-#include <mednafen/mednafen.h>
+#include <src/mednafen.h>
 #include "ZIPReader.h"
 #include "ZLInflateFilter.h"
 

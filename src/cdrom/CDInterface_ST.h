@@ -22,8 +22,8 @@
 #ifndef __MDFN_CDROM_CDINTERFACE_ST_H
 #define __MDFN_CDROM_CDINTERFACE_ST_H
 
-#include <mednafen/cdrom/CDInterface.h>
-#include <mednafen/cdrom/CDAccess.h>
+#include <src/cdrom/CDInterface.h>
+#include <src/cdrom/CDAccess.h>
 
 namespace Mednafen
 {

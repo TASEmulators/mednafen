@@ -1,7 +1,7 @@
 #ifndef __MDFN_CDROM_CDUTILITY_H
 #define __MDFN_CDROM_CDUTILITY_H
 
-#include <mednafen/hash/crc.h>
+#include <src/hash/crc.h>
 
 namespace Mednafen
 {

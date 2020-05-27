@@ -50,8 +50,8 @@
 
 #include "system.h"
 #include "ram.h"
-#include <mednafen/mempatcher.h>
-#include <mednafen/hash/md5.h>
+#include <src/mempatcher.h>
+#include <src/hash/md5.h>
 
 bool CRam::TestMagic(const uint8* data, uint64 test_size)
 {

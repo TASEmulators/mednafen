@@ -20,13 +20,13 @@
 */
 
 #include "Net_WS2.h"
-#include <mednafen/string/string.h>
+#include <src/string/string.h>
 
 #include <sys/time.h>
 #include <winsock2.h>
 #include <ws2tcpip.h>
 #include <wspiapi.h>
-#include <mednafen/win32-common.h>
+#include <src/win32-common.h>
 #include <strsafe.h>
 
 #ifndef AI_ADDRCONFIG

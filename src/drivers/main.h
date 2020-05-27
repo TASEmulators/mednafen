@@ -1,11 +1,11 @@
 #ifndef __MDFN_DRIVERS_MAIN_H
 #define __MDFN_DRIVERS_MAIN_H
 
-#include <mednafen/driver.h>
-#include <mednafen/mednafen.h>
-#include <mednafen/settings.h>
-#include <mednafen/Time.h>
-#include <mednafen/MThreading.h>
+#include <src/driver.h>
+#include <src/mednafen.h>
+#include <src/settings.h>
+#include <src/Time.h>
+#include <src/MThreading.h>
 #include "config.h"
 #include "args.h"
 

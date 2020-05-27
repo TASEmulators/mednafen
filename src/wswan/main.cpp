@@ -19,9 +19,9 @@
 */
 
 #include "wswan.h"
-#include <mednafen/hash/md5.h>
-#include <mednafen/mempatcher.h>
-#include <mednafen/player.h>
+#include <src/hash/md5.h>
+#include <src/mempatcher.h>
+#include <src/player.h>
 
 #include <fcntl.h>
 #include <sys/types.h>
