@@ -55,7 +55,7 @@ struct CartInfo
  size_t ROM_Size;
  unsigned ROMLayout;
  //
- uint8 ROM[8192 * 1024];
+ uint8* ROM;
 };
 
  MDFN_HIDE extern CartInfo Cart;

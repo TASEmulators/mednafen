@@ -21,6 +21,7 @@
 
 #include "snes.h"
 #include "input.h"
+#include "nyma.h"
 
 namespace MDFN_IEN_SNES_FAUST
 {
@@ -294,6 +295,9 @@ static uint8 JoyARData[8];
 
 static DEFREAD(Read_JoyARData)
 {
+	LagFlag = false;
+	if (InputCallback)
+		InputCallback();
  if(MDFN_UNLIKELY(DBG_InHLRead))
  {
   return JoyARData[A & 0x7];
@@ -308,6 +312,9 @@ static DEFREAD(Read_JoyARData)
 
 static DEFREAD(Read_4016)
 {
+	LagFlag = false;
+	if (InputCallback)
+		InputCallback();
  if(MDFN_UNLIKELY(DBG_InHLRead))
  {
   return CPUM.mdr & 0xFC; // | TODO!
@@ -336,6 +343,9 @@ static DEFWRITE(Write_4016)
 
 static DEFREAD(Read_4017)
 {
+	LagFlag = false;
+	if (InputCallback)
+		InputCallback();
  if(MDFN_UNLIKELY(DBG_InHLRead))
  {
   return (CPUM.mdr & 0xE0) | 0x1C; // | TODO!
@@ -359,6 +369,9 @@ static DEFWRITE(Write_WRIO)
 
 static DEFREAD(Read_4213)
 {
+	LagFlag = false;
+	if (InputCallback)
+		InputCallback();
  if(MDFN_UNLIKELY(DBG_InHLRead))
  {
   return WRIO;

@@ -32,6 +32,7 @@
 #include <src/general.h>
 #include <src/FileStream.h>
 #include <src/hash/sha1.h>
+#include <emulibc.h>
 
 namespace MDFN_IEN_SNES_FAUST
 {
@@ -135,6 +136,7 @@ bool CART_Init(Stream* fp, uint8 id[16], const int32 cx4_ocmultiplier, const int
  const uint64 raw_size = fp->size();
  const unsigned copier_header_adjust = ((raw_size & 0x7FFF) == 512) ? 512 : 0;
  const uint64 size = raw_size - copier_header_adjust;
+ Cart.ROM = alloc_sealed<uint8_t>(8192 * 1024);
 
  //printf("%llu\n", (unsigned long long)size);
 
