@@ -25,7 +25,7 @@
 namespace MDFN_IEN_SNES_FAUST
 {
 
-static unsigned ppu_renderer = ~0U;
+unsigned ppu_renderer = ~0U;
 #define WHATEVER(s) assert(ppu_renderer == PPU_RENDERER_ST || ppu_renderer == PPU_RENDERER_MT); return ((ppu_renderer == PPU_RENDERER_MT) ? PPU_MT::s : PPU_ST::s)
 
 void PPU_Init(const unsigned Renderer, const bool IsPAL, const bool IsPALPPUBit, const bool WantFrameBeginVBlank, const uint64 affinity)

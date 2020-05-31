@@ -23,7 +23,7 @@
 #include "ppu.h"
 #include "ppu_mtrender.h"
 
-#include <src/Time.h>
+// #include <src/Time.h>
 #include <src/hash/sha256.h>
 
 #ifdef HAVE_MMX_INTRINSICS
@@ -38,6 +38,8 @@
 #ifdef HAVE_NEON_INTRINSICS
  #include <arm_neon.h>
 #endif
+
+#include "nyma.h"
 
 namespace MDFN_IEN_SNES_FAUST
 {
@@ -474,22 +476,25 @@ static INLINE bool DoCommand(uint8 Command, uint8 Arg8)
 
 alignas(32) ITC_S ITC;
 
-static MDFN_HOT int RThreadEntry(void* data)
+static uint32_t WritePos = 0;
+static uint32_t ReadPos = 0;
+static MDFN_HOT void RThreadEntry()
 {
  bool Running = true;
- size_t WritePos = 0;
- size_t ReadPos = 0;
 
  while(MDFN_LIKELY(Running))
  {
-  ITC.TMP_ReadPos.store(ReadPos, std::memory_order_release);
-  WritePos = ITC.TMP_WritePos.load(std::memory_order_acquire);
+  __atomic_store(&ITC.TMP_ReadPos, &ReadPos, __ATOMIC_RELEASE);
+  // ITC.TMP_ReadPos.store(ReadPos, std::memory_order_release);
+  __atomic_load(&ITC.TMP_WritePos, &WritePos, __ATOMIC_ACQUIRE);
+  // WritePos = ITC.TMP_WritePos.load(std::memory_order_acquire);
 
   while(ReadPos == WritePos)
   {
-   MThreading::Sem_Post(ITC.WakeupSem);
-   MThreading::Sem_TimedWait(ITC.RT_WakeupSem, 1);
-   WritePos = ITC.TMP_WritePos.load(std::memory_order_acquire);
+   // MThreading::Sem_Post(ITC.WakeupSem);
+   // MThreading::Sem_TimedWait(ITC.RT_WakeupSem, 1);
+   __atomic_load(&ITC.TMP_WritePos, &WritePos, __ATOMIC_ACQUIRE);
+   // WritePos = ITC.TMP_WritePos.load(std::memory_order_acquire);
   }
   //printf("RThread Sync; WritePos=%d time=%lld\n", (int)WritePos, (long long)Time::MonoUS());
   //
@@ -512,18 +517,18 @@ static MDFN_HOT int RThreadEntry(void* data)
    //
    if(Command < COMMAND_BASE)
    {
-    //printf("RThread: Write 0x%02x 0x%02x\n", Command, Arg8);
+    // printf("RThread: Write 0x%02x 0x%02x\n", Command, Arg8);
     Write(Command, Arg8);
    }
    else
    {
-    //printf("RThread: Command 0x%02x 0x%02x\n", Command, Arg8);
+    // printf("RThread: Command 0x%02x 0x%02x\n", Command, Arg8);
     Running &= DoCommand(Command, Arg8);
    }
   }
  }
-
- return 0;
+ __atomic_store(&ITC.TMP_ReadPos, &ReadPos, __ATOMIC_RELEASE);
+ // return 0;
 }
 
 void MTIF_Init(const uint64 affinity)
@@ -536,36 +541,38 @@ void MTIF_Init(const uint64 affinity)
  ITC.ReadPos = 0;
  ITC.TMP_WritePos = 0;
  ITC.TMP_ReadPos = 0;
+ RegisterFrameThreadProc(RThreadEntry);
  //
- ITC.RT_WakeupSem = MThreading::Sem_Create();
- ITC.WakeupSem = MThreading::Sem_Create();
+ // ITC.RT_WakeupSem = MThreading::Sem_Create();
+ // ITC.WakeupSem = MThreading::Sem_Create();
  //
- ITC.RThread = MThreading::Thread_Create(RThreadEntry, NULL, "PPU Render");
- if(affinity)
-  MThreading::Thread_SetAffinity(ITC.RThread, affinity);
+ // ITC.RThread = MThreading::Thread_Create(RThreadEntry, NULL, "PPU Render");
+ //if(affinity)
+ // MThreading::Thread_SetAffinity(ITC.RThread, affinity);
 }
 
 void MTIF_Kill(void)
 {
- if(ITC.RThread)
- {
-  WWQ(COMMAND_EXIT);
-  Wakeup(false);
-  MThreading::Thread_Wait(ITC.RThread, NULL);
-  ITC.RThread = NULL;
- }
+ abort();
+//  if(ITC.RThread)
+//  {
+//   WWQ(COMMAND_EXIT);
+//   Wakeup(false);
+//   MThreading::Thread_Wait(ITC.RThread, NULL);
+//   ITC.RThread = NULL;
+//  }
 
- if(ITC.RT_WakeupSem)
- {
-  MThreading::Sem_Destroy(ITC.RT_WakeupSem);
-  ITC.RT_WakeupSem = NULL;
- }
+//  if(ITC.RT_WakeupSem)
+//  {
+//   MThreading::Sem_Destroy(ITC.RT_WakeupSem);
+//   ITC.RT_WakeupSem = NULL;
+//  }
 
- if(ITC.WakeupSem)
- {
-  MThreading::Sem_Destroy(ITC.WakeupSem);
-  ITC.WakeupSem = NULL;
- }
+//  if(ITC.WakeupSem)
+//  {
+//   MThreading::Sem_Destroy(ITC.WakeupSem);
+//   ITC.WakeupSem = NULL;
+//  }
 }
 
 

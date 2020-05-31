@@ -1,5 +1,5 @@
-#include <atomic>
-#include <src/MThreading.h>
+// #include <atomic>
+// #include <src/MThreading.h>
 
 namespace MDFN_IEN_SNES_FAUST
 {
@@ -196,16 +196,16 @@ struct ITC_S
  uint8 padding0[64];
  std::array<WQ_Entry, 65536> WQ;
  uint8 padding1[64];
- size_t WritePos;
- size_t ReadPos;
+ uint32_t WritePos;
+ uint32_t ReadPos;
  //
  uint8 padding2[64 - sizeof(WritePos) - sizeof(ReadPos)];
- std::atomic_int_least32_t TMP_WritePos;
- std::atomic_int_least32_t TMP_ReadPos;
+ uint32_t TMP_WritePos;
+ uint32_t TMP_ReadPos;
 
- MThreading::Sem* RT_WakeupSem;
- MThreading::Sem* WakeupSem;
- MThreading::Thread* RThread;
+//  MThreading::Sem* RT_WakeupSem;
+//  MThreading::Sem* WakeupSem;
+//  MThreading::Thread* RThread;
 };
 
 MDFN_HIDE extern struct ITC_S ITC;
@@ -213,19 +213,22 @@ MDFN_HIDE extern struct ITC_S ITC;
 static void Wakeup(bool wait_until_empty = false)
 {
  //printf("Sending wakeup.\n");
- ITC.TMP_WritePos.store(ITC.WritePos, std::memory_order_release);
- ITC.ReadPos = ITC.TMP_ReadPos.load(std::memory_order_acquire);
+ __atomic_store(&ITC.TMP_WritePos, &ITC.WritePos, __ATOMIC_RELEASE);
+ // ITC.TMP_WritePos.store(ITC.WritePos, std::memory_order_release);
+ __atomic_load(&ITC.TMP_ReadPos, &ITC.ReadPos, __ATOMIC_ACQUIRE);
+ // ITC.ReadPos = ITC.TMP_ReadPos.load(std::memory_order_acquire);
 
  if(ITC.ReadPos != ITC.WritePos)
  {
-  MThreading::Sem_Post(ITC.RT_WakeupSem);
+//   MThreading::Sem_Post(ITC.RT_WakeupSem);
 
   if(wait_until_empty)
   {
    do
    {
-    MThreading::Sem_TimedWait(ITC.WakeupSem, 1);
-    ITC.ReadPos = ITC.TMP_ReadPos.load(std::memory_order_acquire);
+    // MThreading::Sem_TimedWait(ITC.WakeupSem, 1);
+	__atomic_load(&ITC.TMP_ReadPos, &ITC.ReadPos, __ATOMIC_ACQUIRE);
+    // ITC.ReadPos = ITC.TMP_ReadPos.load(std::memory_order_acquire);
    } while(ITC.ReadPos != ITC.WritePos);
   }
  }
@@ -234,7 +237,7 @@ static void Wakeup(bool wait_until_empty = false)
 static MDFN_HOT void WWQ(uint8 Command, uint8 Arg8 = 0)
 {
  WQ_Entry* e = &ITC.WQ[ITC.WritePos];
-
+ // printf("WThread: Command 0x%02x 0x%02x\n", Command, Arg8);
  e->Command = Command;
  e->Arg8 = Arg8;
  //
@@ -275,6 +278,7 @@ static INLINE void MTIF_Sync(void)
 {
  //uint64 st = Time::MonoUS();
  //unsigned borp = 0;
+ WWQ(COMMAND_EXIT);
  Wakeup(true);
  //printf("End frame: %lld, %u\n", (long long)(Time::MonoUS() - st), borp);
 }
@@ -287,8 +291,10 @@ static INLINE void MTIF_RenderLine(uint32 l)
   Wakeup();
  else
  {
-  ITC.TMP_WritePos.store(ITC.WritePos, std::memory_order_release);
-  ITC.ReadPos = ITC.TMP_ReadPos.load(std::memory_order_acquire);
+  __atomic_store(&ITC.TMP_WritePos, &ITC.WritePos, __ATOMIC_RELEASE);
+  // ITC.TMP_WritePos.store(ITC.WritePos, std::memory_order_release);
+  __atomic_load(&ITC.TMP_ReadPos, &ITC.ReadPos, __ATOMIC_ACQUIRE);
+  // ITC.ReadPos = ITC.TMP_ReadPos.load(std::memory_order_acquire);
  }
 }
 
