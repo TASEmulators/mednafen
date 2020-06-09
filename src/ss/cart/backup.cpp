@@ -25,7 +25,7 @@
 namespace MDFN_IEN_SS
 {
 
-static uint8 ExtBackupRAM[0x80000];
+uint8 ExtBackupRAM[0x80000];
 static bool ExtBackupRAM_Dirty;
 
 // TODO: Check mirroring.

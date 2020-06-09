@@ -25,7 +25,7 @@
 namespace MDFN_IEN_SS
 {
 
-static uint16 ROM[0x100000];
+uint16 ROM[0x100000];
 
 static MDFN_HOT void ROM_Read(uint32 A, uint16* DB)
 {

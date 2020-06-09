@@ -88,9 +88,9 @@ static struct
  bool YIn;
 } Window[2];
 
-static uint16 VRAM[262144];
+uint16 VRAM[262144];
 
-static uint16 CRAM[2048];
+uint16 CRAM[2048];
 
 static struct
 {

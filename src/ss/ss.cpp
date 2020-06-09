@@ -85,10 +85,10 @@ static uint8 SCU_SSH2VectorFetch(void);
 static void INLINE MDFN_HOT CheckEventsByMemTS(void);
 
 SH7095 CPU[2]{ {"SH2-M", SS_EVENT_SH2_M_DMA, SCU_MSH2VectorFetch}, {"SH2-S", SS_EVENT_SH2_S_DMA, SCU_SSH2VectorFetch}};
-static uint16 BIOSROM[524288 / sizeof(uint16)];
-static uint16 WorkRAML[1024 * 1024 / sizeof(uint16)];
-static uint16 WorkRAMH[1024 * 1024 / sizeof(uint16)];	// Effectively 32-bit in reality, but 16-bit here because of CPU interpreter design(regarding fastmap).
-static uint8 BackupRAM[32768];
+uint16 BIOSROM[524288 / sizeof(uint16)];
+uint16 WorkRAML[1024 * 1024 / sizeof(uint16)];
+uint16 WorkRAMH[1024 * 1024 / sizeof(uint16)];	// Effectively 32-bit in reality, but 16-bit here because of CPU interpreter design(regarding fastmap).
+uint8 BackupRAM[32768];
 static bool BackupRAM_Dirty;
 static int64 BackupRAM_SaveDelay;
 static int64 CartNV_SaveDelay;
@@ -104,7 +104,7 @@ static uint32 SH7095_DB;
 #include "debug.inc"
 
 static sha256_digest BIOS_SHA256;	// SHA-256 hash of the currently-loaded BIOS; used for save state sanity checks.
-static int ActiveCartType;		// Used in save states.
+int ActiveCartType;		// Used in save states.
 static std::vector<CDInterface*> *cdifs = NULL;
 static std::bitset<1U << (27 - SH7095_EXT_MAP_GRAN_BITS)> FMIsWriteable;
 
@@ -1402,8 +1402,8 @@ static void MDFN_COLD InitCommon(const unsigned cpucache_emumode, const unsigned
  try { LoadBackupRAM(); } catch(MDFN_Error& e) { if(e.GetErrno() != ENOENT) throw; }
  try { LoadCartNV();    } catch(MDFN_Error& e) { if(e.GetErrno() != ENOENT) throw; }
 
- BackupBackupRAM();
- BackupCartNV();
+ //BackupBackupRAM();
+ //BackupCartNV();
 
  BackupRAM_Dirty = false;
  BackupRAM_SaveDelay = 0;

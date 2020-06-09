@@ -24,7 +24,7 @@
 
 namespace MDFN_IEN_SS
 {
-static uint16* CS1RAM = nullptr;
+uint16* CS1RAM = nullptr;
 
 template<typename T, bool IsWrite>
 static MDFN_HOT void CS1RAM_RW_DB(uint32 A, uint16* DB)

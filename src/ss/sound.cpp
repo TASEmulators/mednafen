@@ -43,7 +43,7 @@ namespace MDFN_IEN_SSFPLAY
 
 #include "scsp.h"
 
-static SS_SCSP SCSP;
+SS_SCSP SCSP;
 
 static M68K SoundCPU(true);
 static int64 run_until_time;	// 32.32

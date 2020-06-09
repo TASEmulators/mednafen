@@ -24,7 +24,7 @@
 
 namespace MDFN_IEN_SS
 {
-static uint16 ExtRAM[0x200000];
+uint16 ExtRAM[0x200000];
 static size_t ExtRAM_Mask;
 static uint8 Cart_ID;
 
