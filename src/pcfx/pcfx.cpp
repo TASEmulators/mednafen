@@ -35,6 +35,7 @@
 #include <src/hash/md5.h>
 #include <src/FileStream.h>
 #include <src/compress/GZFileStream.h>
+#include "nyma.h"
 
 #include <trio/trio.h>
 
@@ -50,9 +51,9 @@ static std::vector<CDInterface*> *cdifs = NULL;
 
 V810 PCFX_V810;
 
-static uint8 *BIOSROM = NULL; 	// 1MB
-static uint8 *RAM = NULL; 	// 2MB
-static uint8 *FXSCSIROM = NULL;	// 512KiB
+uint8 *BIOSROM = NULL; 	// 1MB
+uint8 *RAM = NULL; 	// 2MB
+uint8 *FXSCSIROM = NULL;	// 512KiB
 
 static uint32 RAM_LPA;		// Last page access
 
@@ -67,7 +68,7 @@ static bool WantHuC6273 = false;
 VDC *fx_vdc_chips[2];
 
 static uint16 BackupControl;
-static uint8 BackupRAM[0x8000], ExBackupRAM[0x8000];
+uint8 BackupRAM[0x8000], ExBackupRAM[0x8000];
 static uint8 ExBusReset; // I/O Register at 0x0700
 
 static bool BRAMDisabled;	// Cached at game load, don't remove this caching behavior or save game loss may result(if we ever get a GUI).
