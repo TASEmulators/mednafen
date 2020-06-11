@@ -1499,6 +1499,7 @@ void SMPC_LineHook(sscpu_timestamp_t event_timestamp, int32 out_line, int32 div,
  SS_SetEventNT(&events[SS_EVENT_SMPC], nets);
 }
 
+__attribute__((init_priority(888)))
 static const std::vector<InputDeviceInfoStruct> InputDeviceInfoSSVPort =
 {
  // None
@@ -1584,12 +1585,14 @@ static const std::vector<InputDeviceInfoStruct> InputDeviceInfoSSVPort =
  },
 };
 
+__attribute__((init_priority(777)))
 static IDIISG IDII_Builtin =
 {
  IDIIS_ResetButton(),
  IDIIS_Button("smpc_reset", "SMPC Reset", -1),
 };
 
+__attribute__((init_priority(666)))
 static const std::vector<InputDeviceInfoStruct> InputDeviceInfoBuiltin =
 {
  {
@@ -1600,6 +1603,7 @@ static const std::vector<InputDeviceInfoStruct> InputDeviceInfoBuiltin =
  }
 };
 
+__attribute__((init_priority(555)))
 const std::vector<InputPortInfoStruct> SMPC_PortInfo =
 {
  { "port1", "Virtual Port 1", InputDeviceInfoSSVPort, "gamepad" },
