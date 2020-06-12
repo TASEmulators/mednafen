@@ -208,8 +208,9 @@ class SH7095 final
   // Rather than have separate validity bits, we're putting an INvalidity bit(invalid when =1)
   // in the upper bit of the Tag variables.
   uint32 Tag[4];
+  /*alignas(4)*/ uint8 Data[4][16];
   uint8 LRU;
-  alignas(4) uint8 Data[4][16];
+  uint8 ___paddd[15];
  } Cache[64];
 
  uint8 CCR;
