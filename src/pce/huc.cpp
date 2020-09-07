@@ -25,7 +25,6 @@
 #include <src/mempatcher.h>
 #include <src/compress/GZFileStream.h>
 #include <src/FileStream.h>
-#include <emulibc.h>
 
 #include "mcgenjin.h"
 
@@ -307,7 +306,7 @@ uint32 HuC_Load(Stream* s, bool DisableBRAM, SysCardType syscard)
    goto BRAM_Init; // SO EVIL YES EVVIIIIIL(FIXME)
   }
 
-  HuCROM = (uint8_t*)alloc_sealed(m_len);
+  HuCROM = new uint8[m_len];
   memset(HuCROM, 0xFF, m_len);
   s->read(HuCROM, std::min<uint64>(m_len, len));
   crc = crc32(0, HuCROM, std::min<uint64>(m_len, len));

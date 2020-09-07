@@ -31,7 +31,6 @@
 #include <src/compress/GZFileStream.h>
 
 #include "huc.h"
-#include <emulibc.h>
 
 namespace PCE_Fast
 {
@@ -173,7 +172,7 @@ uint32 HuC_Load(Stream* fp)
   PCE_IsCD = 0;
 
 
-  HuCROM = alloc_sealed<uint8_t>(m_len);
+  HuCROM = new uint8[m_len];
   memset(HuCROM, 0xFF, m_len);
   fp->read(HuCROM, std::min<uint64>(m_len, len));
 

@@ -32,7 +32,6 @@
 #include <src/player.h>
 #include <src/hash/sha1.h>
 #include <src/cheat_formats/snes.h>
-#include <emulibc.h>
 
 #include <bitset>
 
@@ -524,7 +523,6 @@ static MDFN_COLD void LoadReal(GameFile* gf)
 
   return;
  }
- CPUM.RWIndex = alloc_sealed<uint8_t>(256 * 65536 + 1);
 
  SpecEx = MDFN_GetSettingB("snes_faust.spex");
  SpecExSoundToo = MDFN_GetSettingB("snes_faust.spex.sound");

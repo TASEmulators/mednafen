@@ -23,7 +23,6 @@
 #include "OwlResampler.h"
 #include "DSPUtility.h"
 #include "../cputest/cputest.h"
-#include <emulibc.h>
 
 #if defined(HAVE_ALTIVEC_INTRINSICS) && defined(HAVE_ALTIVEC_H)
  #include <altivec.h>
@@ -45,9 +44,7 @@ OwlBuffer::OwlBuffer()
  assert(sizeof(I32_F_Pudding) == 4);
  assert(sizeof(float) == 4);
 
- size_t bufsiz = sizeof(HRBuf[0]) * (HRBUF_LEFTOVER_PADDING + 65536 + HRBUF_OVERFLOW_PADDING);
- HRBuf = (I32_F_Pudding*)alloc_invisible(bufsiz);
- memset(HRBuf, 0, bufsiz);
+ memset(HRBuf, 0, sizeof(HRBuf));
 
  accum = 0;
  filter_state[0] = 0;
@@ -535,7 +532,7 @@ static float FilterDenormal(float v)
 
 OwlResampler::OwlResampler(double input_rate, double output_rate, double rate_error, double debias_corner, int quality, double nyq_fudge, double fake_input_rate, int32 dividend_override, int32 divisor_override)
 {
- //std::unique_ptr<double[]> FilterBuf;
+ std::unique_ptr<double[]> FilterBuf;
  double cutoff;
  double required_bandwidth;
  double k_beta;
@@ -758,21 +755,20 @@ OwlResampler::OwlResampler(double input_rate, double output_rate, double rate_er
 
  assert(NumCoeffs <= OwlBuffer::HRBUF_LEFTOVER_PADDING);
 
- auto CoeffsBufferSize = 256 + NumCoeffs * NumPhases * sizeof(float);
- auto CoeffsBuffer = (float*)alloc_invisible(CoeffsBufferSize);
+ CoeffsBuffer.resize((256 / sizeof(float)) + NumCoeffs * NumPhases);
 
  for(unsigned int i = 0; i < NumPhases; i++)
   PInfos[i].Coeffs = (float *)(((uintptr_t)&CoeffsBuffer[0] + 0xFF) &~ 0xFF) + (i * NumCoeffs);
 
- MDFN_printf("Impulse response table memory usage: %zu bytes\n", CoeffsBufferSize);
+ MDFN_printf("Impulse response table memory usage: %zu bytes\n", CoeffsBuffer.size() * sizeof(float));
 
- auto tmpFilter = alloc_invisible<double>(NumCoeffs * NumPhases);
- DSPUtility::generate_kaiser_sinc_lp(&tmpFilter[0], NumCoeffs * NumPhases, cutoff / NumPhases / 2.0, k_beta);
- DSPUtility::normalize(&tmpFilter[0], NumCoeffs * NumPhases); 
+ FilterBuf.reset(new double[NumCoeffs * NumPhases]);
+ DSPUtility::generate_kaiser_sinc_lp(&FilterBuf[0], NumCoeffs * NumPhases, cutoff / NumPhases / 2.0, k_beta);
+ DSPUtility::normalize(&FilterBuf[0], NumCoeffs * NumPhases); 
 
  #if 0
  for(int i = 0; i < NumCoeffs * NumPhases; i++)
-  fprintf(stderr, "%.20f\n", tmpFilter[i]);
+  fprintf(stderr, "%.20f\n", FilterBuf[i]);
  #endif
 
  for(unsigned int phase = 0; phase < NumPhases; phase++)
@@ -785,7 +781,7 @@ OwlResampler::OwlResampler(double input_rate, double output_rate, double rate_er
 
   for(unsigned int i = 0; i < NumCoeffs; i++)
   {
-   double tmpcod = tmpFilter[i * NumPhases + sp] * NumPhases;	// Tasty cod.
+   double tmpcod = FilterBuf[i * NumPhases + sp] * NumPhases;	// Tasty cod.
 
    PInfos[tp].Coeffs[i] = FilterDenormal(tmpcod);
    //sum_d += PInfos[tp].Coeffs[i];

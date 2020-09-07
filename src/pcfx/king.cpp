@@ -48,7 +48,6 @@
 #include <trio/trio.h>
 #include <src/video.h>
 #include <src/sound/OwlResampler.h>
-#include <emulibc.h>
 
 namespace MDFN_IEN_PCFX
 {
@@ -2380,9 +2379,9 @@ static void DrawBG(uint32 *target, int n, bool sub)
  }
 }
 
-ECL_INVISIBLE static int16 UVLUT[65536][3];
-ECL_INVISIBLE static uint8 RGBDeflower[1152]; // 0 is at 384
-ECL_INVISIBLE static uint32 CbCrLUT[65536];
+static int16 UVLUT[65536][3];
+static uint8 RGBDeflower[1152]; // 0 is at 384
+static uint32 CbCrLUT[65536];
 
 static void RebuildUVLUT(const MDFN_PixelFormat &format)
 {

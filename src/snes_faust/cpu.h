@@ -69,7 +69,7 @@ struct CPU_Misc
  // +1 so we can avoid a masking for 16-bit reads/writes(note that this
  // may result in the address passed to the read/write handlers being
  // 0x1000000 instead of 0x000000 in some cases, so code with that in mind.
- uint8* RWIndex;
+ uint8 RWIndex[256 * 65536 + 1];
 
  INLINE uint8 ReadA(uint32 A)
  {

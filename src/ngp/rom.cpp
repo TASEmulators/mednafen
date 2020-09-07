@@ -15,7 +15,6 @@
 #include "neopop.h"
 #include "flash.h"
 #include "interrupt.h"
-#include <emulibc.h>
 
 //=============================================================================
 
@@ -105,7 +104,7 @@ void rom_loaded(void)
 
 	rom_display_header();
 
-	ngpc_rom.orig_data = (uint8_t*)alloc_sealed(ngpc_rom.length);
+	ngpc_rom.orig_data = new uint8[ngpc_rom.length];
 	memcpy(ngpc_rom.orig_data, ngpc_rom.data, ngpc_rom.length);
 }
 
