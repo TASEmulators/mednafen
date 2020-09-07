@@ -1036,6 +1036,7 @@ static void Emulate(EmulateSpecStruct* espec)
  }
  else
  {
+  #if 0
   EmulateSpecStruct tmp_espec = *espec;
 
   if(espec->SoundFormatChanged || espec->NeedSoundReverse)
@@ -1101,6 +1102,9 @@ static void Emulate(EmulateSpecStruct* espec)
   //
   MDFNSS_LoadSM(SpecExSS, true);
   SpecExSS->rewind();
+  #else
+  abort();
+  #endif
  } 
 
  if(MDFN_UNLIKELY(spc_reader || snsf_loader))
@@ -1108,6 +1112,11 @@ static void Emulate(EmulateSpecStruct* espec)
   espec->LineWidths[0] = ~0;
   Player_Draw(espec->surface, &espec->DisplayRect, 0, espec->SoundBuf, espec->SoundBufSize);
  }
+}
+
+static void FormatsChanged(EmulateSpecStruct* espec)
+{
+	PPU_FormatsChanged(espec);
 }
 
 static MDFN_COLD void DoSimpleCommand(int cmd)
@@ -1367,6 +1376,7 @@ MDFNGI EmulatedSNES_Faust =
  false,
  StateAction,
  Emulate,
+ FormatsChanged,
  NULL,
  SetInput,
  NULL,

@@ -317,6 +317,7 @@ static INLINE void MTIF_Read(uint8 A)
 void MTIF_Init(const uint64 affinity) MDFN_COLD;
 void MTIF_Reset(bool powering_up) MDFN_COLD;
 void MTIF_StartFrame(EmulateSpecStruct* espec, const unsigned hfilter);
+void MTIF_FormatsChanged(EmulateSpecStruct* espec);
 void MTIF_Kill(void) MDFN_COLD;
 }
 }

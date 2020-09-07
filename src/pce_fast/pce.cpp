@@ -509,6 +509,18 @@ static MDFN_COLD void CloseGame(void)
  Cleanup();
 }
 
+static void FormatsChanged(EmulateSpecStruct *espec)
+{
+	VDC_SetPixelFormat(espec->surface->format, espec->CustomPalette, espec->CustomPaletteNumEntries); //.Rshift, espec->surface->format.Gshift, espec->surface->format.Bshift);
+
+	for (int y = 0; y < 2; y++)
+	{
+		sbuf[y].set_sample_rate(espec->SoundRate ? espec->SoundRate : 44100, 50);
+		sbuf[y].clock_rate((long)(PCE_MASTER_CLOCK / 3));
+		sbuf[y].bass_freq(10);
+	}
+}
+
 static void Emulate(EmulateSpecStruct *espec)
 {
  INPUT_Frame();
@@ -561,18 +573,6 @@ static void Emulate(EmulateSpecStruct *espec)
  firstcat = false;
 #endif
 
- if(espec->VideoFormatChanged)
-  VDC_SetPixelFormat(espec->surface->format, espec->CustomPalette, espec->CustomPaletteNumEntries); //.Rshift, espec->surface->format.Gshift, espec->surface->format.Bshift);
-
- if(espec->SoundFormatChanged)
- {
-  for(int y = 0; y < 2; y++)
-  {
-   sbuf[y].set_sample_rate(espec->SoundRate ? espec->SoundRate : 44100, 50);
-   sbuf[y].clock_rate((long)(PCE_MASTER_CLOCK / 3));
-   sbuf[y].bass_freq(10);
-  }
- }
  VDC_RunFrame(espec, IsHES);
 
  if(PCE_IsCD)
@@ -765,6 +765,7 @@ MDFNGI EmulatedPCE_Fast =
  false,
  StateAction,
  Emulate,
+ FormatsChanged,
  INPUT_TransformInput,
  PCEINPUT_SetInput,
  SetMedia,

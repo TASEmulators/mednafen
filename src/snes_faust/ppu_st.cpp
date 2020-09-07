@@ -302,6 +302,7 @@ namespace PPU_MTRENDER
  static INLINE void MTIF_Read(unsigned A) { }
  static INLINE void MTIF_Write(unsigned A, unsigned V) { }
  static INLINE void MTIF_StartFrame(EmulateSpecStruct* espec, const unsigned hfilter) { RenderCommon_StartFrame(espec, HFilter); }
+ static INLINE void MTIF_FormatsChanged(EmulateSpecStruct* espec) { RenderCommon_FormatsChanged(espec); }
 
  static INLINE void MTIF_EnterVBlank(bool PAL, bool skip) { if(!skip) { RenderZero(PAL ? 239 : 232); } }
  static INLINE void MTIF_ResetLineTarget(bool PAL, bool ilaceon, bool field) { RenderCommon_ResetLineTarget(PAL, ilaceon, field); }

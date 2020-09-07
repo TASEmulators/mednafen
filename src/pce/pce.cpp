@@ -833,6 +833,13 @@ void TestThing(unsigned count)
 }
 #endif
 
+static void FormatsChanged(EmulateSpecStruct *espec)
+{
+	vce->SetPixelFormat(espec->surface->format, espec->CustomPalette, espec->CustomPaletteNumEntries);
+
+	SetSoundRate(espec->SoundRate);
+}
+
 static EmulateSpecStruct *es;
 static void Emulate(EmulateSpecStruct *espec)
 {
@@ -842,12 +849,6 @@ static void Emulate(EmulateSpecStruct *espec)
  espec->SoundBufSize = 0;
 
  MDFNMP_ApplyPeriodicCheats();
-
- if(espec->VideoFormatChanged)
-  vce->SetPixelFormat(espec->surface->format, espec->CustomPalette, espec->CustomPaletteNumEntries);
-
- if(espec->SoundFormatChanged)
-  SetSoundRate(espec->SoundRate);
 
  //int t = MDFND_GetTime();
 
@@ -1243,6 +1244,7 @@ MDFNGI EmulatedPCE =
  false,
  StateAction,
  Emulate,
+ FormatsChanged,
  PCEINPUT_TransformInput,
  PCEINPUT_SetInput,
  SetMedia,

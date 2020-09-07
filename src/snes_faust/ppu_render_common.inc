@@ -1769,17 +1769,9 @@ static INLINE void RenderCommon_RenderLine(void)
   RenderLine<false, uint32>();
 }
 
-
-static INLINE void RenderCommon_StartFrame(EmulateSpecStruct* espec, const unsigned hfilter)
+static INLINE void RenderCommon_FormatsChanged(EmulateSpecStruct* espec)
 {
- es = espec;
- //
- //
- //
- const auto& f = es->surface->format;
-
- if(MDFN_UNLIKELY(es->VideoFormatChanged))
- {
+  const auto& f = es->surface->format;
   for(int rc = 0; rc < 0x8000; rc++)
   {
    const uint8 a = rc;
@@ -1819,7 +1811,15 @@ static INLINE void RenderCommon_StartFrame(EmulateSpecStruct* espec, const unsig
 */
    }
   }
- }
+}
+
+static INLINE void RenderCommon_StartFrame(EmulateSpecStruct* espec, const unsigned hfilter)
+{
+ es = espec;
+ //
+ //
+ //
+ const auto& f = es->surface->format;
 
  HFilter_PrevW = 256;
  HFilter_Auto512 = false;

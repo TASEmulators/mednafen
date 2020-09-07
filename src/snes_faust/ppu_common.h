@@ -8,6 +8,7 @@ void PPU_ResetTS(void);
 void PPU_StateAction(StateMem* sm, const unsigned load, const bool data_only);
 
 void PPU_StartFrame(EmulateSpecStruct* espec);
+void PPU_FormatsChanged(EmulateSpecStruct* espec);
 //
 //
 //

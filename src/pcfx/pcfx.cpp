@@ -238,6 +238,12 @@ static const CDGameEntry GameList[] =
  #include "gamedb.inc"
 };
 
+static void FormatsChanged(EmulateSpecStruct *espec)
+{
+	KING_SetPixelFormat(espec->surface->format); //.Rshift, espec->surface->format.Gshift, espec->surface->format.Bshift);
+
+	SoundBox_SetSoundRate(espec->SoundRate);
+}
 
 static void Emulate(EmulateSpecStruct *espec)
 {
@@ -246,13 +252,6 @@ static void Emulate(EmulateSpecStruct *espec)
  FXINPUT_Frame();
 
  MDFNMP_ApplyPeriodicCheats();
-
- if(espec->VideoFormatChanged)
-  KING_SetPixelFormat(espec->surface->format); //.Rshift, espec->surface->format.Gshift, espec->surface->format.Bshift);
-
- if(espec->SoundFormatChanged)
-  SoundBox_SetSoundRate(espec->SoundRate);
-
 
  KING_StartFrame(fx_vdc_chips, espec);	//espec->surface, &espec->DisplayRect, espec->LineWidths, espec->skip);
 
@@ -1122,6 +1121,7 @@ MDFNGI EmulatedPCFX =
  false,
  StateAction,
  Emulate,
+ FormatsChanged,
  FXINPUT_TransformInput,
  FXINPUT_SetInput,
  SetMedia,

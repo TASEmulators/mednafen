@@ -2243,6 +2243,7 @@ MDFNGI EmulatedSS =
  false,
  StateAction,
  Emulate,
+ NULL,
  SMPC_TransformInput,
  SMPC_SetInput,
  SetMedia,

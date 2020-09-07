@@ -71,6 +71,13 @@ int32 ngpc_soundTS = 0;
 //static int32 main_timeaccum;
 static int32 z80_runtime;
 
+static void FormatsChanged(EmulateSpecStruct *espec)
+{
+	NGPGfx->set_pixel_format(espec->surface->format);
+
+	MDFNNGPC_SetSoundRate(espec->SoundRate);
+}
+
 static void Emulate(EmulateSpecStruct *espec)
 {
 	bool MeowMeow = 0;
@@ -79,13 +86,6 @@ static void Emulate(EmulateSpecStruct *espec)
 	espec->DisplayRect.y = 0;
 	espec->DisplayRect.w = 160;
 	espec->DisplayRect.h = 152;
-
-	if(espec->VideoFormatChanged)
-	 NGPGfx->set_pixel_format(espec->surface->format);
-
-	if(espec->SoundFormatChanged)
-	 MDFNNGPC_SetSoundRate(espec->SoundRate);
-
 
 	NGPJoyLatch = *chee;
 	storeB(0x6F82, *chee);
@@ -412,6 +412,7 @@ MDFNGI EmulatedNGP =
  false,
  StateAction,
  Emulate,
+ FormatsChanged,
  NULL,
  SetInput,
  NULL,

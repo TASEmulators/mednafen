@@ -358,7 +358,7 @@ struct EmulateSpecStruct
 	// Will be set to true on the first call to the Emulate() function/method
 	//
 	// Driver-side can set it to true if it has changed the custom palette.
-	bool VideoFormatChanged = false;
+	// bool VideoFormatChanged = false;
 
 	// Set by the system emulation code every frame, to denote the horizontal and vertical offsets of the image, and the size
 	// of the image.  If the emulated system sets the elements of LineWidths, then the width(w) of this structure
@@ -396,7 +396,7 @@ struct EmulateSpecStruct
 
         // Will be set to true if the sound format(only rate for now, at least) has changed since the last call to Emulate(), false otherwise.
         // Will be set to true on the first call to the Emulate() function/method
-	bool SoundFormatChanged = false;
+	// bool SoundFormatChanged = false;
 
 	// Sound rate.  Set by driver side.
 	double SoundRate = 0;
@@ -638,6 +638,8 @@ typedef struct
  void (*StateAction)(StateMem *sm, const unsigned load, const bool data_only);
 
  void (*Emulate)(EmulateSpecStruct *espec);
+ // must be called once before emulation begins, and again if the video or sound formats change
+ void (*FormatsChanged)(EmulateSpecStruct *espec);
  void (*TransformInput)(void);	// Called before Emulate, and within MDFN_MidSync(), to implement stuff like setting-controlled PC Engine SEL+RUN button exclusion in a way
 				// that won't cause desyncs with movies and netplay.
 

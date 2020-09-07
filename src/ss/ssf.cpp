@@ -195,6 +195,7 @@ MDFNGI EmulatedSSFPlay =
  NULL,
  NULL,
  NULL,
+ NULL,
  DoSimpleCommand,
  NULL,
  SSFPlaySettings,

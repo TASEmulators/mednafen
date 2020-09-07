@@ -1396,6 +1396,11 @@ void PPU_StartFrame(EmulateSpecStruct* espec)
  INPUT_UpdatePhysicalState();
 }
 
+void PPU_FormatsChanged(EmulateSpecStruct* espec)
+{
+	PPU_MTRENDER::MTIF_FormatsChanged(espec);
+}
+
 static INLINE void Common_StateAction(StateMem* sm, const unsigned load, const bool data_only)
 {
  SFORMAT StateRegs[] =

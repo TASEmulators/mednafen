@@ -80,6 +80,11 @@ void PPU_StartFrame(EmulateSpecStruct* espec)
  WHATEVER(PPU_StartFrame)(espec);
 }
 
+void PPU_FormatsChanged(EmulateSpecStruct* espec)
+{
+	WHATEVER(PPU_FormatsChanged)(espec);
+}
+
 void PPU_SyncMT(void)
 {
  if(ppu_renderer == PPU_RENDERER_MT)

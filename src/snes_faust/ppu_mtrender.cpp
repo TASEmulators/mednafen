@@ -335,6 +335,11 @@ void MTIF_StartFrame(EmulateSpecStruct* espec, const unsigned hfilter)
  RenderCommon_StartFrame(espec, hfilter);
 }
 
+void MTIF_FormatsChanged(EmulateSpecStruct* espec)
+{
+	RenderCommon_FormatsChanged(espec);
+}
+
 static INLINE void Write(uint8 A, uint8 V)
 {
  switch(A)
