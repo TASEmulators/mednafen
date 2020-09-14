@@ -1771,7 +1771,7 @@ static INLINE void RenderCommon_RenderLine(void)
 
 static INLINE void RenderCommon_FormatsChanged(EmulateSpecStruct* espec)
 {
-  const auto& f = es->surface->format;
+  const auto& f = espec->surface->format;
   for(int rc = 0; rc < 0x8000; rc++)
   {
    const uint8 a = rc;
