@@ -28,7 +28,7 @@
 #include <src/sound/OwlResampler.h>
 
 #ifdef MDFN_SNES_FAUST_SPC700_IPL_EFFECTS_ANALYZE
- #include <mednafen/FileStream.h>
+ #include <src/FileStream.h>
 #endif
 
 namespace MDFN_IEN_SNES_FAUST

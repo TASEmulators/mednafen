@@ -27,7 +27,7 @@
  #include <mpc/mpcdec.h>
  #define MPC_STATUS_FAIL -1
 #else
- #include <mednafen/mpcdec/mpcdec.h>
+ #include <src/mpcdec/mpcdec.h>
 #endif
 
 namespace Mednafen

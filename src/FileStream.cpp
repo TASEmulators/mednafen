@@ -33,7 +33,7 @@
 #include <fcntl.h>
 
 #ifdef WIN32
- #include <mednafen/win32-common.h>
+ #include <src/win32-common.h>
 #else
  #include <unistd.h>
  #include <sys/file.h>

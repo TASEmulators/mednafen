@@ -219,7 +219,7 @@ md5_digest md5_hasher::digest(void) const
  return ret;
 }
 
-//#include <mednafen/Time.h>
+//#include <src/Time.h>
 void md5_test(void)
 {
 #if 0

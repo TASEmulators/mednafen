@@ -24,7 +24,7 @@
 #include <src/FileStream.h>
 
 #ifdef WIN32
- #include <mednafen/win32-common.h>
+ #include <src/win32-common.h>
 #else
  #include <unistd.h>
  #include <dirent.h>

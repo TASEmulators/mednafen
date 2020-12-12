@@ -23,8 +23,8 @@
 
 #ifdef WIN32
  // For mswin_utf8_convert_kludge()
- #include <mednafen/string/string.h>
- #include <mednafen/win32-common.h>
+ #include <src/string/string.h>
+ #include <src/win32-common.h>
 #endif
 
 namespace Mednafen

@@ -19,7 +19,7 @@
 #include "main.h"
 
 #ifdef WIN32
- #include <mednafen/win32-common.h>
+ #include <src/win32-common.h>
 #endif
 
 #include <trio/trio.h>

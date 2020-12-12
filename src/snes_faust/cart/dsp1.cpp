@@ -22,7 +22,7 @@
 #include "common.h"
 #include "dsp1.h"
 //#include "../ppu.h"
-//#include <mednafen/FileStream.h>
+//#include <src/FileStream.h>
 
 namespace MDFN_IEN_SNES_FAUST
 {

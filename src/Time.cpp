@@ -24,7 +24,7 @@
 #include "Time.h"
 
 #if defined(WIN32)
- #include <mednafen/win32-common.h>
+ #include <src/win32-common.h>
 #endif
 
 namespace Mednafen

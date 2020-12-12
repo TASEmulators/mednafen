@@ -26,7 +26,7 @@
 #ifdef HAVE_EXTERNAL_TREMOR
  #include <tremor/ivorbisfile.h>
 #else
- #include <mednafen/tremor/ivorbisfile.h>
+ #include <src/tremor/ivorbisfile.h>
 #endif
 
 namespace Mednafen
