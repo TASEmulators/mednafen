@@ -452,6 +452,9 @@ bool InputDevice_DualShock::Clock(bool TxD, int32 &dsr_pulse_delay)
 	}
 	else if(command == 0x43)
 	{
+	LagFlag = false;
+	if (InputCallback)
+		InputCallback();
 	 transmit_pos = 0;
 	 if(analog_mode)
 	 {
@@ -570,6 +573,9 @@ bool InputDevice_DualShock::Clock(bool TxD, int32 &dsr_pulse_delay)
   /* MMMode 0&1, Command 0x42 */
   /**************************/
   case 0x4200:
+	LagFlag = false;
+	if (InputCallback)
+		InputCallback();
 	transmit_pos = 0;
 	if(analog_mode || mad_munchkins)
 	{

@@ -346,6 +346,9 @@ bool InputDevice_Justifier::Clock(bool TxD, int32 &dsr_pulse_delay)
 	//assert(command == 0x42);
 	if(command == 0x42)
 	{
+	LagFlag = false;
+	if (InputCallback)
+		InputCallback();
 	 transmit_buffer[1] = 0xFF ^ ((buttons & 2) << 2);
 	 transmit_buffer[2] = 0xFF ^ (trigger_eff << 7) ^ ((buttons & 1) << 6);
 

@@ -1521,20 +1521,6 @@ void GPU_StartFrame(EmulateSpecStruct *espec_arg)
  DisplayRect = &espec->DisplayRect;
  LineWidths = espec->LineWidths;
  skip = espec->skip;
-
- if(espec->VideoFormatChanged)
- {
-  const auto& f = surface->format;
-
-  for(int rc = 0; rc < 0x8000; rc++)
-  {
-   const uint8 a = rc;
-   const uint8 b = rc >> 8;
-
-   (OutputLUT +   0)[a] = ((a & 0x1F) << (3 + f.Rshift)) | ((a >> 5) << (3 + f.Gshift));
-   (OutputLUT + 256)[b] = ((b & 0x3) << (6 + f.Gshift)) | (((b >> 2) & 0x1F) << (3 + f.Bshift));
-  }
- }
 }
 
 void GPU_StateAction(StateMem *sm, const unsigned load, const bool data_only)

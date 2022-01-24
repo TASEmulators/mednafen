@@ -234,6 +234,9 @@ bool InputDevice_neGcon::Clock(bool TxD, int32 &dsr_pulse_delay)
 
 	if(command == 0x42)
 	{
+	LagFlag = false;
+	if (InputCallback)
+		InputCallback();
 	 transmit_buffer[1] = 0xFF ^ buttons[0];
 	 transmit_buffer[2] = 0xFF ^ buttons[1];
 	 transmit_buffer[3] = twist;			// Twist, 0x00 through 0xFF, 0x80 center.
