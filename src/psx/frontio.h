@@ -22,6 +22,8 @@
 #ifndef __MDFN_PSX_FRONTIO_H
 #define __MDFN_PSX_FRONTIO_H
 
+#include "nyma.h" // propagate lag flag/input cb info to every InputDevice class
+
 namespace MDFN_IEN_PSX
 {
 

@@ -332,6 +332,9 @@ bool InputDevice_GunCon::Clock(bool TxD, int32 &dsr_pulse_delay)
 	//assert(command == 0x42);
 	if(command == 0x42)
 	{
+	LagFlag = false;
+	if (InputCallback)
+		InputCallback();
 	 transmit_buffer[1] = 0xFF ^ ((buttons & 0x01) << 3);
 	 transmit_buffer[2] = 0xFF ^ (trigger_eff << 5) ^ ((buttons & 0x02) << 5);
 

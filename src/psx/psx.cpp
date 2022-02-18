@@ -225,10 +225,10 @@ static int64 Memcard_SaveDelay[8];
 PS_CPU *CPU = NULL;
 PS_SPU *SPU = NULL;
 PS_CDC *CDC = NULL;
-static FrontIO *FIO = NULL;
+FrontIO *FIO = NULL;
 
-static MultiAccessSizeMem<512 * 1024, false> *BIOSROM = NULL;
-static MultiAccessSizeMem<65536, false> *PIOMem = NULL;
+MultiAccessSizeMem<512 * 1024, false> *BIOSROM = NULL;
+MultiAccessSizeMem<65536, false> *PIOMem = NULL;
 
 MultiAccessSizeMem<2048 * 1024, false> MainRAM;
 
@@ -1061,6 +1061,20 @@ void PSX_GPULineHook(const pscpu_timestamp_t timestamp, const pscpu_timestamp_t 
 
 using namespace MDFN_IEN_PSX;
 
+
+static void FormatsChanged(EmulateSpecStruct *espec)
+{
+  const auto& f = espec->surface->format;
+
+  for(int rc = 0; rc < 0x8000; rc++)
+  {
+   const uint8 a = rc;
+   const uint8 b = rc >> 8;
+
+   (GPU.OutputLUT +   0)[a] = ((a & 0x1F) << (3 + f.Rshift)) | ((a >> 5) << (3 + f.Gshift));
+   (GPU.OutputLUT + 256)[b] = ((b & 0x3) << (6 + f.Gshift)) | (((b >> 2) & 0x1F) << (3 + f.Bshift));
+  }
+}
 
 static void Emulate(EmulateSpecStruct *espec)
 {
@@ -2334,6 +2348,7 @@ MDFN_HIDE extern const MDFNGI EmulatedPSX =
  false,
  StateAction,
  Emulate,
+ FormatsChanged,
  TransformInput,
  SetInput,
  SetMedia,

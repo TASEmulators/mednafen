@@ -255,6 +255,9 @@ bool InputDevice_Mouse::Clock(bool TxD, int32 &dsr_pulse_delay)
 
 	if(command == 0x42)
 	{
+	LagFlag = false;
+	if (InputCallback)
+		InputCallback();
 	 int32 xdelta = accum_xdelta;
 	 int32 ydelta = accum_ydelta;
 
