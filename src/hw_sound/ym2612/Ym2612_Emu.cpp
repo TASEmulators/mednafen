@@ -1,4 +1,4 @@
-/* Copyright (C) 2002 Stï¿½phane Dallongeville (gens AT consolemul.com) */
+/* Copyright (C) 2002 Stéphane Dallongeville (gens AT consolemul.com) */
 /* Copyright (C) 2004-2006 Shay Green. This module is free software; you
 can redistribute it and/or modify it under the terms of the GNU Lesser
 General Public License as published by the Free Software Foundation; either
@@ -84,10 +84,10 @@ struct channel_t
 struct state_t
 {
 	int Status;         // YM2612 Status (timer overflow)
-	int TimerA;         // timerA limit = valeur jusqu'ï¿½ laquelle le timer A doit compter
+	int TimerA;         // timerA limit = valeur jusqu'à laquelle le timer A doit compter
 	int TimerAL;
 	int TimerAcnt;      // timerA counter = valeur courante du Timer A
-	int TimerB;         // timerB limit = valeur jusqu'ï¿½ laquelle le timer B doit compter
+	int TimerB;         // timerB limit = valeur jusqu'à laquelle le timer B doit compter
 	int TimerBL;
 	int TimerBcnt;      // timerB counter = valeur courante du Timer B
 	int Mode;           // Mode actuel des voie 3 et 6 (normal / special)
