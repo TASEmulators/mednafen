@@ -21,6 +21,7 @@
 
 #include "vb.h"
 #include "vip.h"
+#include "emulibc.h"
 
 #define VIP_DBGMSG(...) { }
 //#define VIP_DBGMSG(...) printf(__VA_ARGS__)
@@ -28,9 +29,9 @@
 namespace MDFN_IEN_VB
 {
 
-static uint8 FB[2][2][0x6000];
-static uint16 CHR_RAM[0x8000 / sizeof(uint16)];
-static uint16 DRAM[0x20000 / sizeof(uint16)];
+uint8 FB[2][2][0x6000];
+uint16 CHR_RAM[0x8000 / sizeof(uint16)];
+uint16 DRAM[0x20000 / sizeof(uint16)];
 
 #define INT_SCAN_ERR	0x0001
 #define INT_LFB_END	0x0002
@@ -57,27 +58,27 @@ static NO_INLINE void CopyFBColumnToTarget_HLI(void);
 static NO_INLINE void CopyFBColumnToTarget_LR(void);
 
 static void (*CopyFBColumnToTarget)(void) = NULL;
-static float VBLEDOnScale;
+static float ECL_INVISIBLE VBLEDOnScale;
 static uint32 VB3DMode;
 static uint32 VB3DReverse;
 static uint32 VBPrescale;
 static uint32 VBSBS_Separation;
 static uint32 HLILUT[256];
-static uint32 ColorLUT[2][256];
-static int32 BrightnessCache[4];
-static uint32 BrightCLUT[2][4];
+static uint32 ECL_INVISIBLE ColorLUT[2][256];
+static int32 ECL_INVISIBLE BrightnessCache[4];
+static uint32 ECL_INVISIBLE BrightCLUT[2][4];
 
-static float ColorLUTNoGC[2][256][3];
-static uint32 AnaSlowColorLUT[256][256];
+static float ECL_INVISIBLE ColorLUTNoGC[2][256][3];
+static uint32 ECL_INVISIBLE AnaSlowColorLUT[256][256];
 
 // A few settings:
-static bool InstantDisplayHack;
+static bool ECL_INVISIBLE InstantDisplayHack;
 static bool AllowDrawSkip;
 
 static bool VidSettingsDirty;
 static bool ParallaxDisabled;
-static uint32 Anaglyph_Colors[2];
-static uint32 Default_Color;
+static uint32 ECL_INVISIBLE Anaglyph_Colors[2];
+static uint32 ECL_INVISIBLE Default_Color;
 
 const CustomPalette_Spec VIP_CPInfo[] =
 {
@@ -879,7 +880,7 @@ void VIP_StartFrame(EmulateSpecStruct *espec)
 {
 // puts("Start frame");
 
- if(espec->VideoFormatChanged || VidSettingsDirty)
+ if(VidSettingsDirty)
  {
   MakeColorLUT(espec->surface->format, espec->CustomPalette, espec->CustomPaletteNumEntries);
   Recalc3DModeStuff(espec->surface->format.colorspace != MDFN_COLORSPACE_RGB);

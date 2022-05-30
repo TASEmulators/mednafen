@@ -21,6 +21,7 @@
 
 #include "vb.h"
 #include "input.h"
+#include "nyma.h"
 
 namespace MDFN_IEN_VB
 {
@@ -68,6 +69,10 @@ void VBINPUT_SetInput(unsigned port, const char *type, uint8 *ptr)
 
 uint8 VBINPUT_Read(v810_timestamp_t &timestamp, uint32 A)
 {
+ LagFlag = false;
+ if (InputCallback)
+  InputCallback();
+
  uint8 ret = 0;
  
  

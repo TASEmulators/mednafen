@@ -63,13 +63,13 @@ int32 VB_InDebugPeek;
 
 static uint32 VB3DMode;
 
-static uint8 *WRAM = NULL;
+uint8 *WRAM = NULL;
 
-static uint8 *GPRAM = NULL;
-static uint32 GPRAM_Mask;
+uint8 *GPRAM = NULL;
+uint32 GPRAM_Mask;
 
-static uint8 *GPROM = NULL;
-static uint32 GPROM_Mask;
+uint8 *GPROM = NULL;
+uint32 GPROM_Mask;
 
 MDFN_HIDE V810 *VB_V810 = NULL;
 
@@ -778,6 +778,13 @@ void VB_ExitLoop(void)
  VB_V810->Exit();
 }
 
+static void FormatsChanged(EmulateSpecStruct *espec)
+{
+ VIP_StartFrame(espec);
+
+ VB_VSU->SetSoundRate(espec->SoundRate);
+}
+
 static void Emulate(EmulateSpecStruct *espec)
 {
  v810_timestamp_t v810_timestamp;
@@ -785,9 +792,6 @@ static void Emulate(EmulateSpecStruct *espec)
  MDFNMP_ApplyPeriodicCheats();
 
  VBINPUT_Frame();
-
- if(espec->SoundFormatChanged)
-  VB_VSU->SetSoundRate(espec->SoundRate);
 
  VIP_StartFrame(espec);
 
@@ -1056,6 +1060,7 @@ MDFN_HIDE extern const MDFNGI EmulatedVB =
  false,
  StateAction,
  Emulate,
+ FormatsChanged,
  NULL,
  VBINPUT_SetInput,
  NULL,
