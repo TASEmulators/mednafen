@@ -96,7 +96,7 @@ enum
 static uint8 AreaCode;
 static int32 MasterClock;
 
-static struct
+struct SMPC_RTC
 {
  uint64 ClockAccum;
 
@@ -117,7 +117,7 @@ static struct
  };
 } RTC;
 
-static uint8 SaveMem[4];
+uint8 SaveMem[4];
 
 static uint8 IREG[7];
 static uint8 OREG[0x20];
