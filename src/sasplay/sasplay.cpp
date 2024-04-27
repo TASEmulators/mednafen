@@ -628,6 +628,8 @@ static MDFN_FASTCALL void SoundCPU_BusRMW(uint32 A, uint8 (MDFN_FASTCALL *cb)(M6
 
 static MDFN_FASTCALL unsigned SoundCPU_BusIntAck(uint8 level)
 {
+ SoundCPU.timestamp += 10;
+
  return M68K::BUS_INT_ACK_AUTO;
 }
 
@@ -813,7 +815,7 @@ static const SMXGameInfo* FindSGI(const std::string& fname)
    if(!rle.fname)
     break;
 
-   if(fname == rle.fname)
+   if(!MDFN_strazicmp(fname, rle.fname))
    {
     ret = &sgie;
     break;
@@ -1020,11 +1022,11 @@ static void StateAction(StateMem* sm, const unsigned load, const bool data_only)
 
 static const FileExtensionSpecStruct KnownExtensions[] =
 {
- { "epr-18824a.30", -74, "ROM" }, // Manx TT Superbike, hacky, FIXME
- { ".21", -75, "ROM" },
- { ".31", -76, "ROM" },
- { ".30", -77, "ROM" },
- { ".sd0", -78, "ROM" },
+ { "epr-18824a.30", -80, "ROM" }, // Manx TT Superbike
+ { ".21", -81, "ROM" },
+ { ".31", -82, "ROM" },
+ { ".30", -83, "ROM" },
+ { ".sd0", -84, "ROM" },
 
  { NULL, 0, NULL }
 };
@@ -1033,7 +1035,7 @@ static const FileExtensionSpecStruct KnownExtensions[] =
 static const MDFNSetting SASPlaySettings[] =
 {
  { "sasplay.resamp_quality", MDFNSF_NOFLAGS, gettext_noop("SCSP output resampler quality."),
-	gettext_noop("0 is lowest quality and CPU usage, 10 is highest quality and CPU usage.  The resampler that this setting refers to is used for converting from 44.1KHz to the sampling rate of the host audio device Mednafen is using.  Changing Mednafen's output rate, via the \"sound.rate\" setting, to \"44100\" may bypass the resampler, which can decrease CPU usage by Mednafen, and can increase or decrease audio quality, depending on various operating system and hardware factors."), MDFNST_UINT, "5", "0", "10" },
+	gettext_noop("0 is lowest quality and CPU usage, 10 is highest quality and CPU usage.  The resampler that this setting refers to is used for converting from 44.1KHz to the sampling rate of the host audio device Mednafen is using.  Changing Mednafen's output rate, via the \"\5sound.rate\" setting, to \"44100\" may bypass the resampler, which can decrease CPU usage by Mednafen, and can increase or decrease audio quality, depending on various operating system and hardware factors."), MDFNST_UINT, "5", "0", "10" },
 
  { NULL },
 };

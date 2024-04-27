@@ -6,8 +6,8 @@ AC_CONFIG_MACRO_DIR([m4])
 #
 # Avoid trailing and leading zeroes in the decimal version components to avoid confusing not-so-learned people.
 #
-MEDNAFEN_VERSION='1.29.0'
-MEDNAFEN_VERSION_NUMERIC=0x00102900
+MEDNAFEN_VERSION='1.32.1'
+MEDNAFEN_VERSION_NUMERIC=0x00103201
 #                        0xJJJnnnRR
 
 AC_CANONICAL_HOST
@@ -21,15 +21,16 @@ AM_PROG_AS
 AM_PROG_CC_C_O
 AC_PROG_CXX
 AC_PROG_CXXCPP
-AC_LANG_CPLUSPLUS
 
-CXX="$CXX -std=gnu++11"
-CXXCPP="$CXXCPP -std=gnu++11"
+AC_LANG_C
 CC="$CC -std=gnu99"
 CPP="$CPP -std=gnu99"
+AX_APPEND_COMPILE_FLAGS([-fsigned-char -fwrapv], CC)
 
-AX_CFLAGS_GCC_OPTION([-fsigned-char], CC)
-AX_CXXFLAGS_GCC_OPTION([-fsigned-char], CXX)
+AC_LANG_CPLUSPLUS
+CXX="$CXX -std=gnu++11"
+CXXCPP="$CXXCPP -std=gnu++11"
+AX_APPEND_COMPILE_FLAGS([-fsigned-char -fwrapv -fexceptions], CXX)
 
 AC_PROG_INSTALL
 
@@ -121,13 +122,13 @@ dnl
 dnl -fstrict-aliasing for OpenBSD
 dnl
 OPTIMIZER_FLAGS=""
-AX_CFLAGS_GCC_OPTION([-fno-fast-math], OPTIMIZER_FLAGS)
-AX_CFLAGS_GCC_OPTION([-fno-unsafe-math-optimizations], OPTIMIZER_FLAGS)
-AX_CFLAGS_GCC_OPTION([-fno-aggressive-loop-optimizations], OPTIMIZER_FLAGS)
-AX_CFLAGS_GCC_OPTION([-fno-ipa-icf], OPTIMIZER_FLAGS)
-AX_CFLAGS_GCC_OPTION([-fno-printf-return-value], OPTIMIZER_FLAGS)
-AX_CFLAGS_GCC_OPTION([-fomit-frame-pointer], OPTIMIZER_FLAGS)
-AX_CFLAGS_GCC_OPTION([-fstrict-aliasing], OPTIMIZER_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-fno-fast-math], OPTIMIZER_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-fno-unsafe-math-optimizations], OPTIMIZER_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-fno-aggressive-loop-optimizations], OPTIMIZER_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-fno-ipa-icf], OPTIMIZER_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-fno-printf-return-value], OPTIMIZER_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-fomit-frame-pointer], OPTIMIZER_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-fstrict-aliasing], OPTIMIZER_FLAGS)
 
 dnl
 dnl Use -fwrapv instead of -fno-strict-overflow; -fno-strict-overflow is buggy on gcc and does not work as documented/implied.
@@ -135,28 +136,26 @@ dnl
 dnl -mfunction-return=keep, -mindirect-branch=keep, -mno-indirect-branch-register to disable performance-murdering Spectre mitigations.
 dnl
 CODEGEN_FLAGS=""
-AX_CFLAGS_GCC_OPTION([-fwrapv],  CODEGEN_FLAGS)
-AX_CFLAGS_GCC_OPTION([-fjump-tables], CODEGEN_FLAGS)
-AX_CFLAGS_GCC_OPTION([-mfunction-return=keep], CODEGEN_FLAGS)
-AX_CFLAGS_GCC_OPTION([-mindirect-branch=keep], CODEGEN_FLAGS)
-AX_CFLAGS_GCC_OPTION([-mno-indirect-branch-register], CODEGEN_FLAGS)
-AX_CFLAGS_GCC_OPTION([-mno-retpoline], CODEGEN_FLAGS)
-
-CODEGEN_CFLAGS=""
-
-CODEGEN_CXXFLAGS=""
-AX_CXXFLAGS_GCC_OPTION([-fexceptions], CODEGEN_CXXFLAGS)
+AX_APPEND_COMPILE_FLAGS([-fjump-tables], CODEGEN_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-mfunction-return=keep], CODEGEN_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-mindirect-branch=keep], CODEGEN_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-mno-indirect-branch-register], CODEGEN_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-mno-retpoline], CODEGEN_FLAGS)
 
 WARNING_FLAGS=""
-AX_CFLAGS_GCC_OPTION([-Wall], WARNING_FLAGS)
-AX_CFLAGS_GCC_OPTION([-Wshadow], WARNING_FLAGS)
-AX_CFLAGS_GCC_OPTION([-Wempty-body], WARNING_FLAGS)
-AX_CFLAGS_GCC_OPTION([-Wignored-qualifiers], WARNING_FLAGS)
-AX_CFLAGS_GCC_OPTION([-Wvla], WARNING_FLAGS)
-AX_CFLAGS_GCC_OPTION([-Wvariadic-macros], WARNING_FLAGS)
-AX_CFLAGS_GCC_OPTION([-Wdisabled-optimization], WARNING_FLAGS)
-AX_CFLAGS_GCC_OPTION([-Wstack-usage=32768], WARNING_FLAGS)
-AX_CFLAGS_GCC_OPTION([-Werror=write-strings], WARNING_FLAGS)
+ac_save_CXXFLAGS="$CXXFLAGS"
+AX_APPEND_COMPILE_FLAGS([-Werror=unknown-warning-option], CXXFLAGS)
+AX_APPEND_COMPILE_FLAGS([-Wall], WARNING_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-Wshadow], WARNING_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-Wempty-body], WARNING_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-Wignored-qualifiers], WARNING_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-Wvla], WARNING_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-Wvariadic-macros], WARNING_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-Wdisabled-optimization], WARNING_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-Wstack-usage=32768], WARNING_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-Wframe-larger-than=32768], WARNING_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-Werror=write-strings], WARNING_FLAGS)
+CXXFLAGS="$ac_save_CXXFLAGS"
 AC_SUBST(WARNING_FLAGS)
 
 dnl
@@ -169,10 +168,10 @@ dnl simplicity of the test program and some other compiler flag usage difference
 dnl
 NOPICPIE_FLAGS=""
 NOPICPIE_LDFLAGS=""
-AX_CFLAGS_GCC_OPTION([-fno-pic], NOPICPIE_FLAGS)
-AX_CFLAGS_GCC_OPTION([-fno-pie], NOPICPIE_FLAGS)
-AX_CFLAGS_GCC_OPTION([-fno-PIC], NOPICPIE_FLAGS)
-AX_CFLAGS_GCC_OPTION([-fno-PIE], NOPICPIE_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-fno-pic], NOPICPIE_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-fno-pie], NOPICPIE_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-fno-PIC], NOPICPIE_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-fno-PIE], NOPICPIE_FLAGS)
 AX_CHECK_LINK_FLAG([-nopie], [NOPICPIE_LDFLAGS="$NOPICPIE_LDFLAGS -nopie"])
 AX_CHECK_LINK_FLAG([-no-pie], [NOPICPIE_LDFLAGS="$NOPICPIE_LDFLAGS -no-pie"])
 
@@ -181,8 +180,8 @@ if test "x$NOPICPIE_FLAGS" != "x" || test "x$NOPICPIE_LDFLAGS" != "x"; then
 	ac_save_CFLAGS="$CFLAGS"
 	ac_save_CXXFLAGS="$CXXFLAGS"
 	ac_save_LDFLAGS="$LDFLAGS"
-	CFLAGS="$OPTIMIZER_FLAGS $WARNING_FLAGS $CODEGEN_FLAGS $CODEGEN_CFLAGS $CFLAGS"
-	CXXFLAGS="$OPTIMIZER_FLAGS $WARNING_FLAGS $CODEGEN_FLAGS $CODEGEN_CXXFLAGS $CXXFLAGS"
+	CFLAGS="$OPTIMIZER_FLAGS $WARNING_FLAGS $CODEGEN_FLAGS $CFLAGS"
+	CXXFLAGS="$OPTIMIZER_FLAGS $WARNING_FLAGS $CODEGEN_FLAGS $CXXFLAGS"
 	AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <stdio.h>]], [[return puts("blackraspberrycobblerwithvanillaicecream");]])], [], [AC_MSG_ERROR([*** compiler broken?])])
         dnl Put $NOPICPIE_FLAGS after $CFLAGS/$CXXFLAGS here so the check doesn't give a misleading result,
         dnl but don't do it elsewhere.
@@ -208,14 +207,14 @@ fi
 # Used as needed in Makefile.am:
 #
 NO_STACK_PROTECTOR_FLAGS=""
-AX_CFLAGS_GCC_OPTION([-fno-stack-protector], NO_STACK_PROTECTOR_FLAGS)
-AX_CFLAGS_GCC_OPTION([-fno-stack-protector-all], NO_STACK_PROTECTOR_FLAGS)
-AX_CFLAGS_GCC_OPTION([-fno-stack-protector-strong], NO_STACK_PROTECTOR_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-fno-stack-protector], NO_STACK_PROTECTOR_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-fno-stack-protector-all], NO_STACK_PROTECTOR_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-fno-stack-protector-strong], NO_STACK_PROTECTOR_FLAGS)
 AC_SUBST(NO_STACK_PROTECTOR_FLAGS)
 
 # Used for ngp and quicklz
 NO_STRICT_ALIASING_FLAGS=""
-AX_CFLAGS_GCC_OPTION([-fno-strict-aliasing], NO_STRICT_ALIASING_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-fno-strict-aliasing], NO_STRICT_ALIASING_FLAGS)
 AC_SUBST(NO_STRICT_ALIASING_FLAGS)
 
 # -----------------------------------
@@ -223,12 +222,12 @@ AC_SUBST(NO_STRICT_ALIASING_FLAGS)
 #
 SNES_EXTRA_FLAGS=""
 SNES_EXTRA_CXXFLAGS=""
-AX_CFLAGS_GCC_OPTION([-Wno-unused], SNES_EXTRA_FLAGS)
-AX_CFLAGS_GCC_OPTION([-Wno-shadow], SNES_EXTRA_FLAGS)
-AX_CFLAGS_GCC_OPTION([-Wno-sign-compare], SNES_EXTRA_FLAGS)
-AX_CFLAGS_GCC_OPTION([-Wno-uninitialized], SNES_EXTRA_FLAGS)
-AX_CFLAGS_GCC_OPTION([-Wno-parentheses], SNES_EXTRA_FLAGS)
-AX_CFLAGS_GCC_OPTION([-Wno-switch], SNES_EXTRA_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-Wno-unused], SNES_EXTRA_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-Wno-shadow], SNES_EXTRA_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-Wno-sign-compare], SNES_EXTRA_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-Wno-uninitialized], SNES_EXTRA_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-Wno-parentheses], SNES_EXTRA_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-Wno-switch], SNES_EXTRA_FLAGS)
 AC_SUBST(SNES_EXTRA_FLAGS)
 AC_SUBST(SNES_EXTRA_CXXFLAGS)
 #
@@ -239,7 +238,7 @@ AC_SUBST(SNES_EXTRA_CXXFLAGS)
 # Begin ss flags
 #
 SS_EXTRA_FLAGS=""
-AX_CFLAGS_GCC_OPTION([-mtune=haswell], SS_EXTRA_FLAGS)
+AX_APPEND_COMPILE_FLAGS([-mtune=haswell], SS_EXTRA_FLAGS)
 AC_SUBST(SS_EXTRA_FLAGS)
 #
 # End ss flags
@@ -643,12 +642,18 @@ AC_ARG_WITH([external-trio], [AS_HELP_STRING([--with-external-trio], [compile an
 	[],
 	[with_external_trio=no])
 if test x$with_external_trio = xyes; then
-	AC_CHECK_LIB([trio], [trio_printf], [], AC_MSG_ERROR([*** libtrio not found!]))
-	AC_CHECK_HEADER([trio.h], [], AC_MSG_ERROR([*** libtrio not found!]))
+	PKG_CHECK_MODULES(TRIO, libtrio, [], [
+		AC_CHECK_LIB([trio], [trio_printf], [], AC_MSG_ERROR([*** libtrio not found!]))
+		AC_CHECK_HEADER([trio.h], [], AC_MSG_ERROR([*** libtrio not found!]))
+		TRIO_LIBS="-ltrio"
+		TRIO_CFLAGS=""
+	])
+
+	AC_SUBST([TRIO_LIBS])
+	AC_SUBST([TRIO_CFLAGS])
 
 	AC_DEFINE([HAVE_EXTERNAL_TRIO], [1], [Define if we are compiling and linking with external trio.])
 	AM_CONDITIONAL(HAVE_EXTERNAL_TRIO, true)
-	AC_SUBST([TRIO_LIBS], ["-ltrio"])
 	trio_include_symsrc="include/trio_external"
 else
 	trio_include_symsrc="src/trio"
@@ -737,10 +742,10 @@ if expr x"$host" : 'x.*-mingw*' > /dev/null; then
 	if test x$host_cpu != xx86_64; then
 		# Enable larger address space support(for the 32-bit build).
 		LDFLAGS="$LDFLAGS -Wl,--large-address-aware"
-		AX_CFLAGS_GCC_OPTION([-march=i686], OPTIMIZER_FLAGS)
-		AX_CFLAGS_GCC_OPTION([-mtune=pentium3], OPTIMIZER_FLAGS)
+		AX_APPEND_COMPILE_FLAGS([-march=i686], OPTIMIZER_FLAGS)
+		AX_APPEND_COMPILE_FLAGS([-mtune=pentium3], OPTIMIZER_FLAGS)
 	else
-		AX_CFLAGS_GCC_OPTION([-mtune=amdfam10], OPTIMIZER_FLAGS)
+		AX_APPEND_COMPILE_FLAGS([-mtune=amdfam10], OPTIMIZER_FLAGS)
 	fi
 
 	# Always build with DirectSound support.
@@ -753,19 +758,19 @@ if expr x"$host" : 'x.*-mingw*' > /dev/null; then
 	AC_DEFINE([HAVE_WASAPI], [1], [Define if we are compiling with WASAPI support.])
 	LIBS="-lole32 $LIBS"
 
-        AC_DEFINE([PSS_STYLE],[2], [Defines the filesystem path-separator type.])
+        AC_DEFINE([MDFN_PSS_STYLE], [2], [Defines the filesystem path-separator type.])
 	AC_DEFINE([WIN32], [1], [Define if we are compiling for Win32.])
 	AM_CONDITIONAL(WIN32, true)
 
 	LIBS="-mconsole -lws2_32 -ldxguid -lwinmm -ldinput $LIBS -lwinmm"
 	CPPFLAGS="-D_LFS64_LARGEFILE=1 $CPPFLAGS"
 elif expr x"$host" : 'x.*djgpp' > /dev/null; then
-       	AC_DEFINE([PSS_STYLE],[2], [Defines the filesystem path-separator type.])
+       	AC_DEFINE([MDFN_PSS_STYLE], [2], [Defines the filesystem path-separator type.])
        	AC_DEFINE([DOS], [1], [Define if we are compiling for DOS.])
        	AM_CONDITIONAL(DOS, true)
 	NEED_SDL=false
 else
-	AC_DEFINE([PSS_STYLE],[1], [Defines the filesystem path-separator type.])
+	AC_DEFINE([MDFN_PSS_STYLE], [1], [Defines the filesystem path-separator type.])
 
 	#
 	# POSIX threads
@@ -907,7 +912,7 @@ AM_CONDITIONAL(ARCH_X86_32, false)
 AM_CONDITIONAL(ARCH_X86_64, false)
 AM_CONDITIONAL(ARCH_POWERPC, false)
 
-TRIO_CFLAGS=""
+TRIO_BUILD_CFLAGS=""
 
 dnl OpenBSD...
 AC_TRY_LINK([], [asm volatile("vcvtss2si %xmm6,%ecx\n\tvhaddps %ymm7,%ymm7,%ymm7\n\tvzeroupper\n\t");],
@@ -920,7 +925,7 @@ case "$host_cpu" in
 	        AM_CONDITIONAL(ARCH_X86, true)
                 AC_DEFINE([ARCH_X86_64], [1], [Define if we are compiling for 64-bit x86 architectures.])
                 AM_CONDITIONAL(ARCH_X86_64, true)
-		AX_CFLAGS_GCC_OPTION([-mcmodel=small], CODEGEN_FLAGS)
+		AX_APPEND_COMPILE_FLAGS([-mcmodel=small], CODEGEN_FLAGS)
 		;;
 
 	i*86)
@@ -936,8 +941,8 @@ case "$host_cpu" in
 
 	        if test x$enable_altivec = xyes; then
         	        ALTIVEC_FLAGS=""
-                	AX_CFLAGS_GCC_OPTION([-faltivec], ALTIVEC_FLAGS)
-	                AX_CFLAGS_GCC_OPTION([-maltivec], ALTIVEC_FLAGS)
+                	AX_APPEND_COMPILE_FLAGS([-faltivec], ALTIVEC_FLAGS)
+	                AX_APPEND_COMPILE_FLAGS([-maltivec], ALTIVEC_FLAGS)
 	                if test "x$ALTIVEC_FLAGS" != "x"; then
 				altivec_save_CPPFLAGS="$CPPFLAGS"
 				CPPFLAGS="$CPPFLAGS $ALTIVEC_FLAGS"
@@ -950,10 +955,10 @@ case "$host_cpu" in
 		;;
 
 	alpha*)
-		AX_CFLAGS_GCC_OPTION([-mieee], TRIO_CFLAGS)
+		AX_APPEND_COMPILE_FLAGS([-mieee], TRIO_BUILD_CFLAGS)
 		;;
 esac
-AC_SUBST(TRIO_CFLAGS)
+AC_SUBST(TRIO_BUILD_CFLAGS)
 
 AC_C_BIGENDIAN([AC_DEFINE([MSB_FIRST],[1],[Define on big-endian platforms.])], 
 [
@@ -962,8 +967,8 @@ AC_C_BIGENDIAN([AC_DEFINE([MSB_FIRST],[1],[Define on big-endian platforms.])],
 AC_DEFINE_UNQUOTED([MEDNAFEN_VERSION],"$MEDNAFEN_VERSION", [Mednafen version definition.])
 AC_DEFINE_UNQUOTED([MEDNAFEN_VERSION_NUMERIC],$MEDNAFEN_VERSION_NUMERIC, [Mednafen version numeric.])
 
-AC_SUBST([AM_CFLAGS], "$ALTIVEC_FLAGS $OPTIMIZER_FLAGS $WARNING_FLAGS $CODEGEN_FLAGS $CODEGEN_CFLAGS $NOPICPIE_FLAGS")
-AC_SUBST([AM_CXXFLAGS], "$ALTIVEC_FLAGS $OPTIMIZER_FLAGS $WARNING_FLAGS $CODEGEN_FLAGS $CODEGEN_CXXFLAGS $NOPICPIE_FLAGS")
+AC_SUBST([AM_CFLAGS], "$ALTIVEC_FLAGS $OPTIMIZER_FLAGS $WARNING_FLAGS $CODEGEN_FLAGS $NOPICPIE_FLAGS")
+AC_SUBST([AM_CXXFLAGS], "$ALTIVEC_FLAGS $OPTIMIZER_FLAGS $WARNING_FLAGS $CODEGEN_FLAGS $NOPICPIE_FLAGS")
 AC_SUBST([AM_LDFLAGS], "$NOPICPIE_LDFLAGS")
 
 dnl Output Makefiles
