@@ -2,7 +2,7 @@
 /* Mednafen - Multi-system Emulator                                           */
 /******************************************************************************/
 /* ZIPReader.cpp:
-**  Copyright (C) 2018-2021 Mednafen Team
+**  Copyright (C) 2018-2024 Mednafen Team
 **
 ** This program is free software; you can redistribute it and/or
 ** modify it under the terms of the GNU General Public License
@@ -81,11 +81,11 @@ StreamViewFilter::~StreamViewFilter()
 
 uint64 StreamViewFilter::read(void *data, uint64 count, bool error_on_eos)
 {
+ const uint64 size_ = ss_bound_pos - ss_start_pos;
  uint64 cc = count;
  uint64 ret;
 
- cc = std::min<uint64>(cc, ss_bound_pos - ss_start_pos);
- cc = std::min<uint64>(cc, ss_bound_pos - std::min<uint64>(ss_bound_pos, pos));
+ cc = std::min<uint64>(cc, size_ - std::min<uint64>(size_, pos));
 
  if(cc < count && error_on_eos)
   throw MDFN_Error(0, _("Error reading from %s: %s"), vfcontext.c_str(), _("Unexpected EOF"));
@@ -754,6 +754,8 @@ bool ZIPReader::finfo(const std::string& path, FileInfo* fi, const bool throw_on
   FileInfo new_fi;
 
   new_fi.size = entries[which].uncomp_size;
+  new_fi.check = entries[which].crc32;
+  new_fi.check_type = FileInfo::CHECK_TYPE_CRC32;
 
   // TODO/FIXME:
   new_fi.mtime_us = 0;
@@ -768,8 +770,28 @@ bool ZIPReader::finfo(const std::string& path, FileInfo* fi, const bool throw_on
 
 void ZIPReader::readdirentries(const std::string& path, std::function<bool(const std::string&)> callb)
 {
- // TODO/FIXME:
- throw MDFN_Error(EINVAL, _("ZIPReader::readdirentries() not implemented."));
+ const std::string canpath = canonicalize_zip_path(path + '/');
+
+ //printf("Path: %s\n", MDFN_strhumesc(canpath).c_str());
+
+ for(auto const& e : entries)
+ {
+  if(e.name.size() <= canpath.size())
+   continue;
+
+  if(memcmp(e.name.data(), canpath.data(), canpath.size()))
+   continue;
+
+  if(e.name.find('/', canpath.size()) != std::string::npos)
+   continue;
+  //
+  std::string tmp = e.name.substr(canpath.size());
+
+  //printf("File: %s\n", MDFN_strhumesc(tmp).c_str());
+
+  if(!callb(tmp))
+   break;
+ }
 }
 
 std::string ZIPReader::get_human_path(const std::string& path)

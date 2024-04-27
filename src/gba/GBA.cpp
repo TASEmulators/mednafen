@@ -126,9 +126,9 @@ const uint8 gamepakWaitState[4] =  { 4, 3, 2, 8 };
 const uint8 gamepakWaitState0[2] = { 2, 1 };
 const uint8 gamepakWaitState1[2] = { 4, 1 };
 const uint8 gamepakWaitState2[2] = { 8, 1 };
-const bool isInRom [16]=
-  { false, false, false, false, false, false, false, false,
-    true, true, true, true, true, true, false, false };              
+//const bool isInRom [16]=
+//  { false, false, false, false, false, false, false, false,
+//    true, true, true, true, true, true, false, false };              
 
 uint8 memoryWait[16] =
   { 0, 0, 2, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 0 };
@@ -3323,7 +3323,7 @@ static const FileExtensionSpecStruct KnownExtensions[] =
  { ".minigsf", -20, gettext_noop("MiniGSF Rip") },
  { ".gba",   0, gettext_noop("GameBoy Advance ROM Image") },
  { ".agb",   0, gettext_noop("GameBoy Advance ROM Image") },
- { ".bin", -80, gettext_noop("GameBoy Advance ROM Image") },
+ { ".bin", -1000, gettext_noop("GameBoy Advance ROM Image") },
  { NULL, 0, NULL }
 };
 

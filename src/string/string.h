@@ -2,7 +2,7 @@
 /* Mednafen - Multi-system Emulator                                           */
 /******************************************************************************/
 /* string.h:
-**  Copyright (C) 2007-2021 Mednafen Team
+**  Copyright (C) 2007-2023 Mednafen Team
 **
 ** This program is free software; you can redistribute it and/or
 ** modify it under the terms of the GNU General Public License
@@ -70,6 +70,10 @@ static INLINE char MDFN_azupper(char c) { return MDFN_isazlower(c) ? c - 'a' + '
 /*TODO? void MDFN_strazcasexlate(char* d, const char* s);*/
 
 int MDFN_strazicmp(const char* s, const char* t, size_t n = SIZE_MAX);
+int MDFN_strazicmp(const std::string& s, const char* t, size_t n = SIZE_MAX);
+int MDFN_strazicmp(const std::string& s, const std::string& t, size_t n = SIZE_MAX);
+INLINE int MDFN_strazicmp(const char* s, const std::string& t, size_t n = SIZE_MAX) { return -MDFN_strazicmp(t, s, n); }
+
 int MDFN_memazicmp(const void* s, const void* t, size_t n);
 
 static INLINE char* MDFN_memdupstr(const void* s, size_t n)
@@ -84,6 +88,12 @@ static INLINE char* MDFN_memdupstr(const void* s, size_t n)
 
  return ret;
 }
+
+size_t MDFN_memmismatch(const void* s, const void* t, size_t n);
+size_t MDFN_strmismatch(const char* s, const char* t);
+size_t MDFN_strmismatch(const std::string& s, const std::string& t);
+size_t MDFN_strmismatch(const std::string& s, const char* t);
+static INLINE size_t MDFN_strmismatch(const char* s, const std::string& t) { return MDFN_strmismatch(t, s); }
 
 //
 // MDFN_strescape(), MDFN_strunescape(), and MDFN_strargssplit() should not be used to process strings outside of

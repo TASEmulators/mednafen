@@ -23,6 +23,7 @@
 #define __MDFN_GZFILESTREAM_H
 
 #include <src/Stream.h>
+#include <src/VirtualFS.h>
 
 #include <zlib.h>
 
@@ -33,10 +34,10 @@ class GZFileStream : public Stream
 {
  public:
 
- enum class MODE
+ enum class MODE : uint32
  {
-  READ = 0,
-  WRITE = 1,
+  READ = VirtualFS::MODE_READ,
+  WRITE = VirtualFS::MODE_WRITE,
  };
 
  //
