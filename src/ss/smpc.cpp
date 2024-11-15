@@ -900,12 +900,24 @@ uint8 SMPC_Read(const sscpu_timestamp_t timestamp, uint8 A)
 	break;
 
   case 0x3A:
+	if (DirectModeEn[0])
+	{
+		LagFlag = false;
+		if (InputCallback)
+			InputCallback();
+	}
 	UpdateIOBus(0, SH7095_mem_timestamp);
 
 	ret = (ret & 0x80) | IOBusState[0];
 	break;
 
   case 0x3B:
+	if (DirectModeEn[1])
+	{
+		LagFlag = false;
+		if (InputCallback)
+			InputCallback();
+	}
 	UpdateIOBus(1, SH7095_mem_timestamp);
 
 	ret = (ret & 0x80) | IOBusState[1];
