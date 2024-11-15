@@ -52,7 +52,7 @@ static uint8 HammerX, HammerY;
 
 static uint8 prev_sctrl;
 static uint8 prev_ectrl;
-static AK93C45 eep;
+AK93C45 eep;
 
 static IODevice_Gun gun;
 

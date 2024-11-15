@@ -162,7 +162,7 @@ std::string VirtualFS::eval_fip(const std::string& dir_path, const std::string& 
  if(!skip_safety_check)
   check_firop_safe(rel_path);
 
- if(is_absolute_path(rel_path))
+ if(is_absolute_path(rel_path) || dir_path.empty())
   return rel_path;
  else
   return dir_path + preferred_path_separator + rel_path;

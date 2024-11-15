@@ -38,7 +38,8 @@ namespace MDFN_IEN_SS
 {
 
 static unsigned ECChip;
-static uint16* ROM;
+#define ROM STV_ROM
+uint16 ROM[0x3000000 / sizeof(uint16)];
 #ifdef MDFN_ENABLE_DEV_BUILD
 static uint8 ROM_Mapped[0x3000000 / sizeof(uint16)];
 #endif
@@ -120,11 +121,13 @@ static void StateAction(StateMem* sm, const unsigned load, const bool data_only)
 
 static void Kill(void)
 {
+/*
  if(ROM)
  {
   delete[] ROM;
   ROM = nullptr;
  }
+*/
 }
 
 void CART_STV_Init(CartInfo* c, GameFile* gf, const STVGameInfo* sgi)
@@ -138,7 +141,7 @@ void CART_STV_Init(CartInfo* c, GameFile* gf, const STVGameInfo* sgi)
 
   ECChip = sgi->ec_chip;
 
-  ROM = new uint16[0x3000000 / sizeof(uint16)];
+  //ROM = new uint16[0x3000000 / sizeof(uint16)];
   memset(ROM, 0xFF, 0x3000000);
 #ifdef MDFN_ENABLE_DEV_BUILD
   memset(ROM_Mapped, 0x00, sizeof(ROM_Mapped));
